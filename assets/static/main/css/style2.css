@@ -1,0 +1,141 @@
+
+    body,html{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+       
+        }
+    
+        .searchbar{
+        margin-bottom: auto;
+        margin-top: auto;
+        height: 60px;
+        background-color:orange;
+        border-radius: 30px;
+        padding: 10px;
+        }
+    
+        .search_input{
+        color: white;
+        border: 0;
+        outline: 0;
+        background: none;
+        width: 0;
+        caret-color:transparent;
+        line-height: 40px;
+        transition: width 0.4s linear;
+        }
+    
+        .searchbar:hover > .search_input{
+        padding: 0 10px;
+        width: 450px;
+        caret-color:white;
+        transition: width 0.4s linear;
+        }
+    
+        .searchbar:hover > .search_icon{
+        background: white;
+        color: orange;
+        }
+    
+        .search_icon{
+        height: 40px;
+        width: 40px;
+        float: right;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        color:white;
+        text-decoration:none;
+        }
+
+
+
+	*, *:before, *:after{
+		margin: 0;
+		padding: 0;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+		transition: all 0.3s ease-out;
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+	}
+
+	body {
+		font-family: 'Nunito', sans-serif;
+		width: 100%;
+		height: 100%;
+		overflow-x: hidden;
+		font-weight: 400;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+		margin: 0;
+	}
+
+	html {
+		width: 100%;
+		height: 100%;
+	}
+
+	h1, h2, h3, h4, h5, h6{
+		font-weight: 400;
+		padding:0;
+		margin:0;
+	}
+
+	p{
+		padding: 0;
+		margin: 0;
+	}
+
+	a{
+		text-decoration:none;
+		padding:0;
+		margin:0;
+		outline: medium none !important;
+	}
+
+	a:hover{
+		text-decoration: none;
+		outline: medium none !important;
+	}
+
+	a:focus{
+		text-decoration: none;
+		outline: medium none !important;
+	}
+
+	img{
+		display: inline-block;
+		vertical-align: middle;
+		max-width: 100%;
+	}
+
+	.clear{
+		clear: both;
+		width: 0;
+		height: 0;
+		visibility: hidden;
+		overflow: hidden;
+	}
+        
+         .test .open{
+           
+             display: none !important;
+        }
+        .smiley .open{
+            display: block ;
+        }
+         .smiley .close{
+            display: none;
+        }
+        .test .close{
+            display: block !important;
+        }
+        
+	/********************************************************************/
