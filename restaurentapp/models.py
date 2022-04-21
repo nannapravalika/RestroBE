@@ -10,6 +10,10 @@ class RestaurentRegModel(models.Model):
     restaurent_logo=models.ImageField(upload_to='images/')
     restaurent_license=models.ImageField(upload_to='images/')
     restaurent_password=models.CharField(max_length=100)
+    status=models.CharField(default="pending",max_length=100)
+    
+    class Meta:
+        db_table='restaurent_registration_details'
 
 class RestaurentMenuModel(models.Model):
     menu_id=models.AutoField(primary_key=True)
@@ -22,3 +26,5 @@ class RestaurentMenuModel(models.Model):
     menu_details=models.CharField(max_length=100)
     menu_image=models.ImageField(upload_to='images/')
     
+    class Meta:
+        db_table='restaurent_menu_details'

@@ -107,15 +107,15 @@
 
                             <div class="col-md-12 px-5">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                                    <label for="email">Your Email</label>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    <label for="email">Email</label>
                                 </div>
                             </div><br>
 
                             <div class="col-md-12 px-5">
                                 <div class="form-floating">
-                                    <input type="Password" class="form-control" id="Password" placeholder="Password">
-                                    <label for="Password">password</label>
+                                    <input type="Password" name="password" class="form-control" id="Password" placeholder="Password" required>
+                                    <label for="Password">Password</label>
                                 </div>
                             </div>
 
@@ -132,7 +132,7 @@
 
 
                             <div>
-                                <a href="{% url 'restro_dashboard' %}" class="btn btn-primary py-3" type="submit" style="width:100px">Login</a>
+                                <button class="btn btn-primary py-3" type="submit" style="width:100px">Login</button>
                                 <a href="{% url 'restro_reg' %}" class="btn btn-primary py-3" type="submit" style="width:100px">Register</a>
                             </div>
 

@@ -99,88 +99,69 @@
                         Register</h3>
                     <h1 class="text-white mb-4"></h1>
                         <h1 class="text-white mb-4"></h1>
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Restaurant Name</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email"> Email</label>
-                                    </div>
-                                </div>
+                        <form method="post" name="myform" enctype="multipart/form-data"   >
+                            {% csrf_token %}
+                            {% if messages %}
+                            {% for message in messages %}
                                 
-
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="Password" class="form-control" id="Password" placeholder="Password">
-                                        <label for="Password"> Password</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="tel" class="form-control" id="number" placeholder="Mobile Numbe">
-                                        <label for="number"> Confirm Password</label>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="tel" class="form-control" id="number" placeholder="Mobile Numbe">
-                                        <label for="number"> Restaurant Phone</label>
-                                    </div>
-                                </div>
-
-                               
-                               
-                              
-                           
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="Address" placeholder="Address">
-                                        <label for="name">Restaurant Address</label>
-                                    </div>
-                               </div>
-
-                              
-                               
-                  
-                            <!-- <form>
+                            <script>
+                                swal("Welcome!", "Registration Succesful!", "success");
+                            </script>
                                 
-                                    <input type="file" name="file uplode accept">
-                            </form> -->
-
-                            <div>
-                                <label for="formFileLg" class="form-label text-white ">Upload Restaurant Logo</label>
-                                <input class="form-control form-control-lg " id="formFileLg" type="file"  accept="image/*"/>
-                              </div>
-                  
-                            <div>
-                                <label for="formFileLg" class="form-label text-white ">Upload & Food Licence</label>
-                                <input class="form-control form-control-lg " id="formFileLg" type="file">
-                              </div>
-
-
-            
-
-                                <!-- <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
+                            {% endfor %}
+                            {% endif %}
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="rname" class="form-control"  placeholder="Your Name" required>
+                                            <label for="name">Restaurant Name</label>
+                                        </div>
                                     </div>
-                                </div> -->
-                               
-
-                                    <a href="{% url 'restro_login' %}" class="btn btn-primary w-100 py-3" type="submit">Register</a>
-                                </div>
-
-                                
-                            </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="email" name="remail" class="form-control" placeholder="Your Email" required>
+                                            <label for="email"> Email</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="tel" name="mobile" class="form-control" placeholder="Mobile Numbe" required>
+                                            <label for="number"> Restaurant Phone</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="text" name="address" class="form-control" placeholder="Address" required>
+                                            <label for="name">Restaurant Address</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="Password" name="password" class="form-control" placeholder="Password" required>
+                                            <label for="Password"> Password</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-floating">
+                                            <input type="tel" name="cpassword" class="form-control"  placeholder="Mobile Numbe" required>
+                                            <label for="number"> Confirm Password</label>
+                                        </div>
+                                    </div>
+                                   
+                                    <div>
+                                        <label for="formFileLg" class="form-label text-white ">Upload Restaurant Logo</label>
+                                        <input class="form-control form-control-lg " name="rlogo" type="file"  accept="image/*"/>
+                                    </div>
+                                    <div>
+                                        <label for="formFileLg" class="form-label text-white ">Upload & Food Licence</label>
+                                        <input class="form-control form-control-lg " name="rlicence" type="file">
+                                    </div>
+                                    <center>
+                                        <div class="col-md-3">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Register</button>
+                                        </div>
+                                    </center>
+                                </div>   
                         </form>
                     </div>
                 </div>
