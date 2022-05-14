@@ -56,971 +56,506 @@
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="{% url 'restro_dashboard' %}" class="nav-item nav-link "> Dashboard</a>
-                        <a href="{% url 'restro_add_menu' %}" class="nav-item nav-link">Add Menu</a>
-                        
-                        <a href="{% url 'restro_view_menu' %}" class="nav-item nav-link active">View Menu</a>
-                       
-                        <a href="{% url 'restro_view_food_orders' %}" class="nav-item nav-link"> Orders</a>
+                  <div class="navbar-nav ms-auto py-0 pe-4">
+                      <a href="{% url 'restro_dashboard' %}" class="nav-item nav-link "> Dashboard</a>
+                      <a href="{% url 'restro_add_menu' %}" class="nav-item nav-link">Add Tables</a>
 
-                        <a href="{% url 'restro_view_table_bookings' %}" class="nav-item nav-link"> Bookings</a>
+                      <a href="{% url 'restro_view_menu' %}" class="nav-item nav-link active">View Tables</a>
+
+                      
+                      <a href="{% url 'restro_view_table_bookings' %}" class="nav-item nav-link">Bookings</a>
 
 
-                        <a href="{% url 'restro_view_feedback' %}" class="nav-item nav-link">Feedback</a>
-                    </div>
-                    <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
-                    
-                </div>
+
+
+                      <a href="{% url 'restro_view_feedback' %}" class="nav-item nav-link">Feedback</a>
+                  </div>
+                  <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
+
+              </div>
+          
             </nav>
 
             <div class="container-fluid py-5 bg-dark hero-header mb-5">
                 <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Food Menu</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">View Tables</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase bg-dark">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Restaurants</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Food menu</li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">View Tables</li>
                         </ol>
                     </nav>
                 </div>
             </div>
         </div>
       
-<!-- search bar -->
+{% comment %} <!-- search bar -->
 
- <div class="container h-100">
-  <div class="d-flex justify-content-center h-100">
-      <div class="searchbar text-white">
-          <input class="search_input" type="text" name="" placeholder="Restaurant name or a dish...">
-          <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-      </div>
-  </div>
-</div>
-<br><br>
-<!-- /search bar end -->
-
-
-<center>
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-6">
-              <div class="form-check form-switch ">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                  <label class="form-check-label" for="flexSwitchCheckDefault">veg</label>
-              </div>
-          </div>
-
-          <div class="col-lg-6">
-              <div class="form-check form-switch ">
-                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                  <label class="form-check-label" for="flexSwitchCheckDefault">non-veg</label>
-
-              </div>
-          </div>
-      </div>
-  </div>
-</center>
-<!-- /checkbox end -->
-
-
-                  <!-- ad listing list  -->
- <!-- Menu Start -->
- <div class="container-fluid py-5">
-  <div class="container">
-      <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-          <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
-          <h1 class="mb-5">Most Popular Items</h1>
-      </div>
-      <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-          <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-              <li class="nav-item">
-                  <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
-                      <i class="fa fa-coffee fa-2x text-primary"></i>
-                      <div class="ps-3">
-                          <small class="text-body">Popular</small>
-                          <h6 class="mt-n1 mb-0">Breakfast</h6>
-                      </div>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                      <i class="fa fa-hamburger fa-2x text-primary"></i>
-                      <div class="ps-3">
-                          <small class="text-body">Special</small>
-                          <h6 class="mt-n1 mb-0">Launch</h6>
-                      </div>
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
-                      <i class="fa fa-utensils fa-2x text-primary"></i>
-                      <div class="ps-3">
-                          <small class="text-body">Lovely</small>
-                          <h6 class="mt-n1 mb-0">Dinner</h6>
-                      </div>
-                  </a>
-              </li>
-          </ul>
-  
-          
-          <!-- food menu -->
-          <!-- breakfast start -->
-
-          <div class="tab-content">
-              <div id="tab-1" class="tab-pane fade show p-0 active">
-                 
-                      
-
-               
-                        <div class="row p-lg-3 p-sm-5 p-4">
-                          <div class="col-lg-4 col-6 align-self-center">
-                            <a>
-                              <img
-                                src="{% static 'main/img/dosa.jpg' %}"
-                                class="img-fluid"
-                                alt=""
-                              />
-                            </a>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="row align-self-center">
-                              <div class="col-lg-6 col-6 col-md-10">
-                                <div class="ad-listing-content">
-                                  <div style="text-align:justify" >
-                                   <h4 class="text-warning ">Masala Dosa</h4>
-                                    <small>In Dosa
-                                      <br>Serves with coconut chutny
-                                    </small>
-                                  
-                                  <ul class="list-inline mt-2 mb-3 text-success">
-                                   
-                                  
-                                  </ul>
-                                  <small></small>
-                                  <h4 class="text-danger">₹30</h4>
-                                  <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                                </div>
-                                </div>
-                              </div>
-                             
-                              <div class="col-lg-3 col-6 align-self-end">
-                                <div class="product-ratings float-lg-right pb-3">
-                                  <ul class="list-inline text-success">
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star fa-star-primary"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <!-- <li class="list-inline-item">
-                                      <i class="fa fa-star"></i>
-                                    </li> -->
-                                  </ul>
-                                </div>
-                              </div>
-                           
-                            </div>
-                          </div>
-                        </div>
-
-
-
-
-                        <div class="row p-lg-3 p-sm-5 p-4">
-                          <div class="col-lg-4 col-6 align-self-center">
-                            <a>
-                              <img
-                                src="{% static 'main/img/breakfast-4.jpg' %}"
-                                class="img-fluid"
-                                alt=""
-                              />
-                            </a>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="row align-self-center">
-                              <div class="col-lg-6 col-6 col-md-10">
-                                <div class="ad-listing-content">
-                                  <div style="text-align:justify" >
-                                   <h4 class="text-warning ">Vada</h4>
-                                    <small>In Vada
-                                      <br>Serves with coconut chutny
-                                    </small>
-                                  
-                                  <ul class="list-inline mt-2 mb-3 text-success">
-                                   
-                                  
-                                  </ul>
-                                  <small></small>
-                                  <h4 class="text-danger">₹30</h4>
-                                  <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                                </div>
-                                </div>
-                              </div>
-                             
-                              <div class="col-lg-3 col-6 align-self-end">
-                                <div class="product-ratings float-lg-right pb-3">
-                                  <ul class="list-inline text-success">
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star fa-star-primary"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <!-- <li class="list-inline-item">
-                                      <i class="fa fa-star"></i>
-                                    </li> -->
-                                  </ul>
-                                </div>
-                              </div>
-                           
-                            </div>
-                          </div>
-                        </div>
-
-
-                        <div class="row p-lg-3 p-sm-5 p-4">
-                          <div class="col-lg-4 col-6 align-self-center">
-                            <a>
-                              <img
-                                src="{% static 'main/img/breakfast-5.jpg' %}"
-                                class="img-fluid"
-                                alt=""
-                              />
-                            </a>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="row align-self-center">
-                              <div class="col-lg-6 col-6 col-md-10">
-                                <div class="ad-listing-content">
-                                  <div style="text-align:justify" >
-                                   <h4 class="text-warning ">Idli</h4>
-                                    <small>In Idli
-                                      <br>Serves with coconut chutny
-                                    </small>
-                                  
-                                  <ul class="list-inline mt-2 mb-3 text-success">
-                                   
-                                  
-                                  </ul>
-                                  <small></small>
-                                  <h4 class="text-danger">₹30</h4>
-                                  <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                                </div>
-                                </div>
-                              </div>
-                             
-                              <div class="col-lg-3 col-6 align-self-end">
-                                <div class="product-ratings float-lg-right pb-3">
-                                  <ul class="list-inline text-success">
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star fa-star-primary"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <!-- <li class="list-inline-item">
-                                      <i class="fa fa-star"></i>
-                                    </li> -->
-                                  </ul>
-                                </div>
-                              </div>
-                           
-                            </div>
-                          </div>
-                        </div>
-
-
-
-                        <div class="row p-lg-3 p-sm-5 p-4">
-                          <div class="col-lg-4 col-6 align-self-center">
-                            <a>
-                              <img
-                                src="{% static 'main/img/breakfast-4.jpg' %}"
-                                class="img-fluid"
-                                alt=""
-                              />
-                            </a>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="row align-self-center">
-                              <div class="col-lg-6 col-6 col-md-10">
-                                <div class="ad-listing-content">
-                                  <div style="text-align:justify" >
-                                   <h4 class="text-warning "></h4>
-                                    <small>In Dosa
-                                      <br>Serves with coconut chutny
-                                    </small>
-                                  
-                                  <ul class="list-inline mt-2 mb-3 text-success">
-                                   
-                                  
-                                  </ul>
-                                  <small></small>
-                                  <h4 class="text-danger">₹30</h4>
-                                  <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                                </div>
-                                </div>
-                              </div>
-                             
-                              <div class="col-lg-3 col-6 align-self-end">
-                                <div class="product-ratings float-lg-right pb-3">
-                                  <ul class="list-inline text-success">
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star fa-star-primary"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <!-- <li class="list-inline-item">
-                                      <i class="fa fa-star"></i>
-                                    </li> -->
-                                  </ul>
-                                </div>
-                              </div>
-                           
-                            </div>
-                          </div>
-                        </div>
-
-
-
-                        <div class="row p-lg-3 p-sm-5 p-4">
-                          <div class="col-lg-4 col-6 align-self-center">
-                            <a>
-                              <img
-                                src="{% static 'main/img/dosa.jpg' %}"
-                                class="img-fluid"
-                                alt=""
-                              />
-                            </a>
-                          </div>
-                          <div class="col-lg-8">
-                            <div class="row align-self-center">
-                              <div class="col-lg-6 col-6 col-md-10">
-                                <div class="ad-listing-content">
-                                  <div style="text-align:justify" >
-                                   <h4 class="text-warning ">Masala Dosa</h4>
-                                    <small>In Dosa
-                                      <br>Serves with coconut chutny
-                                    </small>
-                                  
-                                  <ul class="list-inline mt-2 mb-3 text-success">
-                                   
-                                  
-                                  </ul>
-                                  <small></small>
-                                  <h4 class="text-danger">₹30</h4>
-                                  <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                                </div>
-                                </div>
-                              </div>
-                             
-                              <div class="col-lg-3 col-6 align-self-end">
-                                <div class="product-ratings float-lg-right pb-3">
-                                  <ul class="list-inline text-success">
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star fa-star-primary"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <li class="list-inline-item selected">
-                                      <i class="fa fa-star"></i>
-                                    </li>
-                                    <!-- <li class="list-inline-item">
-                                      <i class="fa fa-star"></i>
-                                    </li> -->
-                                  </ul>
-                                </div>
-                              </div>
-                           
-                            </div>
-                          </div>
-                        </div>
-                      
-
-                      </div>
-                      
-
-<!-- /break fast end -->
-                 
-              
-
-              <!-- lunch start -->
-              <div id="tab-2" class="tab-pane fade show p-0">
-                 
-
-                <div class="row p-lg-3 p-sm-5 p-4">
-                  <div class="col-lg-4 col-6 align-self-center">
-                    <a>
-                      <img
-                        src="{% static 'main/img/lunch10.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </a>
+            <div class="container h-100">
+              <div class="d-flex justify-content-center h-100">
+                  <div class="searchbar text-white">
+                      <input class="search_input" type="text" name="" placeholder="Restaurant name or a dish...">
+                      <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
                   </div>
-                  <div class="col-lg-8">
-                    <div class="row align-self-center">
-                      <div class="col-lg-6 col-6 col-md-10">
-                        <div class="ad-listing-content">
-                          <div style="text-align:justify" >
-                           <h4 class="text-warning ">curd rice</h4>
-                            <small>In rice
-                              <br>Serves with coconut chutny
-                            </small>
-                          
-                          <ul class="list-inline mt-2 mb-3 text-success">
-                           
-                          
-                          </ul>
-                          <small></small>
-                          <h4 class="text-danger">₹50</h4>
-                          <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                          <a href="" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                        </div>
-                      </div>
-                     
-                      <div class="col-lg-3 col-6 align-self-end">
-                        <div class="product-ratings float-lg-right pb-3">
-                          <ul class="list-inline text-success">
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star fa-star-primary"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                              <i class="fa fa-star"></i>
-                            </li> -->
-                          </ul>
-                        </div>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row p-lg-3 p-sm-5 p-4">
-                  <div class="col-lg-4 col-6 align-self-center">
-                    <a>
-                      <img
-                        src="{% static 'main/img/lunch11.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="row align-self-center">
-                      <div class="col-lg-6 col-6 col-md-10">
-                        <div class="ad-listing-content">
-                          <div style="text-align:justify" >
-                           <h4 class="text-warning ">egg role</h4>
-                            <small>In egg role
-                              <br>Serves with coconut chutny
-                            </small>
-                          
-                          <ul class="list-inline mt-2 mb-3 text-success">
-                           
-                          
-                          </ul>
-                          <small></small>
-                          <h4 class="text-danger">₹400</h4>
-                          <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                          <a href="" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                        </div>
-                      </div>
-                     
-                      <div class="col-lg-3 col-6 align-self-end">
-                        <div class="product-ratings float-lg-right pb-3">
-                          <ul class="list-inline text-success">
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star fa-star-primary"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                              <i class="fa fa-star"></i>
-                            </li> -->
-                          </ul>
-                        </div>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row p-lg-3 p-sm-5 p-4">
-                  <div class="col-lg-4 col-6 align-self-center">
-                    <a>
-                      <img
-                        src="{% static 'main/img/lunch2.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="row align-self-center">
-                      <div class="col-lg-6 col-6 col-md-10">
-                        <div class="ad-listing-content">
-                          <div style="text-align:justify" >
-                           <h4 class="text-warning ">Chicken Biryani</h4>
-                            <small>In Biryani
-                              <br>Serves with coconut chutny
-                            </small>
-                          
-                          <ul class="list-inline mt-2 mb-3 text-success">
-                           
-                          
-                          </ul>
-                          <small></small>
-                          <h4 class="text-danger">₹300</h4>
-                          <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                        </div>
-                      </div>
-                     
-                      <div class="col-lg-3 col-6 align-self-end">
-                        <div class="product-ratings float-lg-right pb-3">
-                          <ul class="list-inline text-success">
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star fa-star-primary"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                              <i class="fa fa-star"></i>
-                            </li> -->
-                          </ul>
-                        </div>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-
-
-                <div class="row p-lg-3 p-sm-5 p-4">
-                  <div class="col-lg-4 col-6 align-self-center">
-                    <a>
-                      <img
-                        src="{% static 'main/img/lunch4.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="row align-self-center">
-                      <div class="col-lg-6 col-6 col-md-10">
-                        <div class="ad-listing-content">
-                          <div style="text-align:justify" >
-                           <h4 class="text-warning ">Burger</h4>
-                            <small>In burger
-                              <br>Serves with coconut chutny
-                            </small>
-                          
-                          <ul class="list-inline mt-2 mb-3 text-success">
-                           
-                          
-                          </ul>
-                          <small></small>
-                          <h4 class="text-danger">₹30</h4>
-                          <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                        </div>
-                      </div>
-                     
-                      <div class="col-lg-3 col-6 align-self-end">
-                        <div class="product-ratings float-lg-right pb-3">
-                          <ul class="list-inline text-success">
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star fa-star-primary"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                              <i class="fa fa-star"></i>
-                            </li> -->
-                          </ul>
-                        </div>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-<!-- /lunch end -->
-
-                  
-<!-- Dinner -->
-              
-              <div id="tab-3" class="tab-pane fade show p-0">
-                 
-
-
-                <div class="row p-lg-3 p-sm-5 p-4">
-                  <div class="col-lg-4 col-6 align-self-center">
-                    <a>
-                      <img
-                        src="{% static 'main/img/lunch6.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="row align-self-center">
-                      <div class="col-lg-6 col-6 col-md-10">
-                        <div class="ad-listing-content">
-                          <div style="text-align:justify" >
-                           <h4 class="text-warning ">Chicken Biryani</h4>
-                            <small>In Biryani
-                              <br>Serves with coconut chutny
-                            </small>
-                          
-                          <ul class="list-inline mt-2 mb-3 text-success">
-                           
-                          
-                          </ul>
-                          <small></small>
-                          <h4 class="text-danger">₹300</h4>
-                          <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                          <a href="" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                        </div>
-                      </div>
-                     
-                      <div class="col-lg-3 col-6 align-self-end">
-                        <div class="product-ratings float-lg-right pb-3">
-                          <ul class="list-inline text-success">
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star fa-star-primary"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                              <i class="fa fa-star"></i>
-                            </li> -->
-                          </ul>
-                        </div>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-
-
-                
-
-                <div class="row p-lg-3 p-sm-5 p-4">
-                  <div class="col-lg-4 col-6 align-self-center">
-                    <a>
-                      <img
-                        src="{% static 'main/img//lunch7.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="row align-self-center">
-                      <div class="col-lg-6 col-6 col-md-10">
-                        <div class="ad-listing-content">
-                          <div style="text-align:justify" >
-                           <h4 class="text-warning ">Chicken Biryani</h4>
-                            <small>In Biryani
-                              <br>Serves with coconut chutny
-                            </small>
-                          
-                          <ul class="list-inline mt-2 mb-3 text-success">
-                           
-                          
-                          </ul>
-                          <small></small>
-                          <h4 class="text-danger">₹300</h4>
-                          <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                          <a href="" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                        </div>
-                      </div>
-                     
-                      <div class="col-lg-3 col-6 align-self-end">
-                        <div class="product-ratings float-lg-right pb-3">
-                          <ul class="list-inline text-success">
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star fa-star-primary"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                              <i class="fa fa-star"></i>
-                            </li> -->
-                          </ul>
-                        </div>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-
-                
-
-                <div class="row p-lg-3 p-sm-5 p-4">
-                  <div class="col-lg-4 col-6 align-self-center">
-                    <a>
-                      <img
-                        src="{% static 'main/img/lunch8.jpg' %}"
-                        class="img-fluid"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="col-lg-8">
-                    <div class="row align-self-center">
-                      <div class="col-lg-6 col-6 col-md-10">
-                        <div class="ad-listing-content">
-                          <div style="text-align:justify" >
-                           <h4 class="text-warning ">Chicken Biryani</h4>
-                            <small>In Biryani
-                              <br>Serves with coconut chutny
-                            </small>
-                          
-                          <ul class="list-inline mt-2 mb-3 text-success">
-                           
-                          
-                          </ul>
-                          <small></small>
-                          <h4 class="text-danger">₹300</h4>
-                          <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
-                                  <a href="" class="btn btn-outline-danger">Delete</a>
-                        </div>
-                        </div>
-                      </div>
-                     
-                      <div class="col-lg-3 col-6 align-self-end">
-                        <div class="product-ratings float-lg-right pb-3">
-                          <ul class="list-inline text-success">
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star fa-star-primary"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <li class="list-inline-item selected">
-                              <i class="fa fa-star"></i>
-                            </li>
-                            <!-- <li class="list-inline-item">
-                              <i class="fa fa-star"></i>
-                            </li> -->
-                          </ul>
-                        </div>
-                      </div>
-                   
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
+            <br><br>
+<!-- /search bar end --> {% endcomment %}
 
-                     
+
+       
+      <div class="container-fluid py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">View Tables</h5>
+                 
+            </div>
+           <br>
+            <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+                <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+                            <i class="fa fa-coffee fa-2x text-primary"></i>
+                            <div class="ps-3">
+                                
+                                <h6 class="mt-n1 mb-0">Booths</h6>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+                            <i class="fa fa-hamburger fa-2x text-primary"></i>
+                            <div class="ps-3">
+                                
+                                <h6 class="mt-n1 mb-0">Person Table(2-4)</h6>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                            <i class="fa fa-utensils fa-2x text-primary"></i>
+                            <div class="ps-3">
+                                
+                                <h6 class="mt-n1 mb-0">Bar Height Table</h6>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-4">
+                          <i class="fa fa-utensils fa-2x text-primary"></i>
+                          <div class="ps-3">
+                              
+                              <h6 class="mt-n1 mb-0">Family Dinning Table</h6>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-5">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            
+                            <h6 class="mt-n1 mb-0">Outdoor Table</h6>
+                        </div>
+                    </a>
+                  </li>
+                </ul>
+        
+                
+                <!-- food menu -->
+                <!-- breakfast start -->
+
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                      <div class="row p-lg-3 p-sm-5 p-4">
+                        <div class="col-lg-4 col-6 align-self-center">
+                          <a>
+                            <img
+                              src="{% static 'main/img/dosa.jpg' %}"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </a>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="row align-self-center">
+                            <div class="col-lg-6 col-6 col-md-10">
+                              <div class="ad-listing-content">
+                                <div style="text-align:justify" >
+                                <h4 class="text-warning ">Booths</h4>
+                                  <small>Total Tables:30
+                                  </small>
+                                
+                                <ul class="list-inline mt-2 mb-3 text-success">
+                                
+                                
+                                </ul>
+                                <small></small>
+                                <h4 class="text-danger">400(2 members)</h4>
+                                <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
+                                <a href="" class="btn btn-outline-danger">Delete</a>
+                              </div>
+                              </div>
+                            </div>
+                          
+                            <div class="col-lg-3 col-6 align-self-end">
+                              <div class="product-ratings float-lg-right pb-3">
+                                <ul class="list-inline text-success">
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star fa-star-primary"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <!-- <li class="list-inline-item">
+                                    <i class="fa fa-star"></i>
+                                  </li> -->
+                                </ul>
+                              </div>
+                            </div>
+                        
+                          </div>
+                        </div>
+                      </div>        
+                    </div>
+                    <div id="tab-2" class="tab-pane fade show p-0">
+                      <div class="row p-lg-3 p-sm-5 p-4">
+                        <div class="col-lg-4 col-6 align-self-center">
+                          <a>
+                            <img
+                              src="{% static 'main/img/dosa.jpg' %}"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </a>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="row align-self-center">
+                            <div class="col-lg-6 col-6 col-md-10">
+                              <div class="ad-listing-content">
+                                <div style="text-align:justify" >
+                                <h4 class="text-warning ">Booths</h4>
+                                  <small>Total Tables:30
+                                  </small>
+                                
+                                <ul class="list-inline mt-2 mb-3 text-success">
+                                
+                                
+                                </ul>
+                                <small></small>
+                                <h4 class="text-danger">400(2 members)</h4>
+                                <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
+                                <a href="" class="btn btn-outline-danger">Delete</a>
+                              </div>
+                              </div>
+                            </div>
+                          
+                            <div class="col-lg-3 col-6 align-self-end">
+                              <div class="product-ratings float-lg-right pb-3">
+                                <ul class="list-inline text-success">
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star fa-star-primary"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <!-- <li class="list-inline-item">
+                                    <i class="fa fa-star"></i>
+                                  </li> -->
+                                </ul>
+                              </div>
+                            </div>
+                        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="tab-3" class="tab-pane fade show p-0">
+                      <div class="row p-lg-3 p-sm-5 p-4">
+                        <div class="col-lg-4 col-6 align-self-center">
+                          <a>
+                            <img
+                              src="{% static 'main/img/dosa.jpg' %}"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </a>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="row align-self-center">
+                            <div class="col-lg-6 col-6 col-md-10">
+                              <div class="ad-listing-content">
+                                <div style="text-align:justify" >
+                                <h4 class="text-warning ">Booths</h4>
+                                  <small>Total Tables:30
+                                  </small>
+                                
+                                <ul class="list-inline mt-2 mb-3 text-success">
+                                
+                                
+                                </ul>
+                                <small></small>
+                                <h4 class="text-danger">400(2 members)</h4>
+                                <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
+                                <a href="" class="btn btn-outline-danger">Delete</a>
+                              </div>
+                              </div>
+                            </div>
+                          
+                            <div class="col-lg-3 col-6 align-self-end">
+                              <div class="product-ratings float-lg-right pb-3">
+                                <ul class="list-inline text-success">
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star fa-star-primary"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <!-- <li class="list-inline-item">
+                                    <i class="fa fa-star"></i>
+                                  </li> -->
+                                </ul>
+                              </div>
+                            </div>
+                        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="tab-4" class="tab-pane fade show p-0">
+                      <div class="row p-lg-3 p-sm-5 p-4">
+                        <div class="col-lg-4 col-6 align-self-center">
+                          <a>
+                            <img
+                              src="{% static 'main/img/dosa.jpg' %}"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </a>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="row align-self-center">
+                            <div class="col-lg-6 col-6 col-md-10">
+                              <div class="ad-listing-content">
+                                <div style="text-align:justify" >
+                                <h4 class="text-warning ">Booths</h4>
+                                  <small>Total Tables:30
+                                  </small>
+                                
+                                <ul class="list-inline mt-2 mb-3 text-success">
+                                
+                                
+                                </ul>
+                                <small></small>
+                                <h4 class="text-danger">400(2 members)</h4>
+                                <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
+                                <a href="" class="btn btn-outline-danger">Delete</a>
+                              </div>
+                              </div>
+                            </div>
+                          
+                            <div class="col-lg-3 col-6 align-self-end">
+                              <div class="product-ratings float-lg-right pb-3">
+                                <ul class="list-inline text-success">
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star fa-star-primary"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <!-- <li class="list-inline-item">
+                                    <i class="fa fa-star"></i>
+                                  </li> -->
+                                </ul>
+                              </div>
+                            </div>
+                        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="tab-5" class="tab-pane fade show p-0">
+                      <div class="row p-lg-3 p-sm-5 p-4">
+                        <div class="col-lg-4 col-6 align-self-center">
+                          <a>
+                            <img
+                              src="{% static 'main/img/dosa.jpg' %}"
+                              class="img-fluid"
+                              alt=""
+                            />
+                          </a>
+                        </div>
+                        <div class="col-lg-8">
+                          <div class="row align-self-center">
+                            <div class="col-lg-6 col-6 col-md-10">
+                              <div class="ad-listing-content">
+                                <div style="text-align:justify" >
+                                <h4 class="text-warning ">Booths</h4>
+                                  <small>Total Tables:30
+                                  </small>
+                                
+                                <ul class="list-inline mt-2 mb-3 text-success">
+                                
+                                
+                                </ul>
+                                <small></small>
+                                <h4 class="text-danger">400(2 members)</h4>
+                                <a href="{% url 'restro_edit_menu' %}" class="btn btn-outline-success">Edit</a>
+                                <a href="" class="btn btn-outline-danger">Delete</a>
+                              </div>
+                              </div>
+                            </div>
+                          
+                            <div class="col-lg-3 col-6 align-self-end">
+                              <div class="product-ratings float-lg-right pb-3">
+                                <ul class="list-inline text-success">
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star fa-star-primary"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <li class="list-inline-item selected">
+                                    <i class="fa fa-star"></i>
+                                  </li>
+                                  <!-- <li class="list-inline-item">
+                                    <i class="fa fa-star"></i>
+                                  </li> -->
+                                </ul>
+                              </div>
+                            </div>
+                        
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                          
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div class="pagination justify-content-center py-4">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="">1</a></li>
+            <li class="page-item active">
+              <a class="page-link" href="">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+          <div class="container py-5">
+              <div class="row g-5">
+                  <div class="col-lg-3 col-md-6">
+                      <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
+                      <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
+                      <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
+                      <a class="btn btn-link" href="">Reservation</a>
+                      <a class="btn btn-link" href="">Privacy Policy</a>
+                      <a class="btn btn-link" href="">Terms & Condition</a>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                      <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                      <p class="mb-2"><i class="fa fa-map-marker-alt me-3">   </i>
+                          <ul>
+                          <li>L.B. Nagar</li>
+                          <li>Hyderabad</li> 
+                          <li>Pin Code:500074. T.S.</li>
+                      </ul>
+
+                    
+                      </p>
+                    
+                      <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>8555887986</p>
+                      <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@codebook.in</p>
+
+                      <div class="d-flex pt-2">
+                          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                          <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                      <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+                      <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                      <p>09AM - 09PM</p>
+                      <h5 class="text-light fw-normal">Sunday</h5>
+                      <p>10AM - 08PM</p>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                      <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
+                      <p>Good food, better drinks, best service
+                          We serve up style with every bite
+                          Good food, good mood</p>
+                          <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                  </div>
+              </div>
+          </div>
+          <div class="container">
+              <div class="copyright">
+                  <div class="row">
+                      <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            <a class="border-bottom" href="#"></a><p class="text-size-12">&copy;Copyright 2022, CODEBOOK</p> 
+            
+            
+                      </div>
+                      <div class="col-md-6 text-center text-md-end">
+                          <div class="footer-menu">
+                              <!-- <p>All Right Reserved</p> -->
+                              <p>Designed & Developed by FZ INFOTECH</p>
+                          </div>
+                      </div>
+                  </div>
               </div>
           </div>
       </div>
-  </div>
-</div>
-<!-- Menu End -->
-<!-- /Dinner -->
-
-                  
-                  
-      
-                  <!-- pagination -->
-                  <div class="pagination justify-content-center py-4">
-                    <nav aria-label="Page navigation example">
-                      <ul class="pagination">
-                        <li class="page-item">
-                          <a class="page-link" href="" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="">1</a></li>
-                        <li class="page-item active">
-                          <a class="page-link" href="">2</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="">3</a></li>
-                        <li class="page-item">
-                          <a class="page-link" href="" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
-                  </div>
-                  <!-- pagination -->
-                
-
-
-
-            <!-- Footer Start -->
-            <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-              <div class="container py-5">
-                  <div class="row g-5">
-                      <div class="col-lg-3 col-md-6">
-                          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
-                          <a class="btn btn-link" href="{% url 'about' %}">About Us</a>
-                          <a class="btn btn-link" href="{% url 'contact' %}">Contact Us</a>
-                          <a class="btn btn-link" href="">Reservation</a>
-                          <a class="btn btn-link" href="">Privacy Policy</a>
-                          <a class="btn btn-link" href="">Terms & Condition</a>
-                      </div>
-                      <div class="col-lg-3 col-md-6">
-                          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
-                          <p class="mb-2"><i class="fa fa-map-marker-alt me-3">   </i>
-                              <ul>
-                             <li>L.B. Nagar</li>
-                             <li>Hyderabad</li> 
-                              <li>Pin Code:500074. T.S.</li>
-                          </ul>
-  
-                       
-                          </p>
-                        
-                          <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>8555887986</p>
-                          <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@codebook.in</p>
-  
-                          <div class="d-flex pt-2">
-                              <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                              <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                              <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                              <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-6">
-                          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
-                          <h5 class="text-light fw-normal">Monday - Saturday</h5>
-                          <p>09AM - 09PM</p>
-                          <h5 class="text-light fw-normal">Sunday</h5>
-                          <p>10AM - 08PM</p>
-                      </div>
-                      <div class="col-lg-3 col-md-6">
-                          <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
-                          <p>Good food, better drinks, best service
-                              We serve up style with every bite
-                              Good food, good mood</p>
-                              <div class="position-relative mx-auto" style="max-width: 400px;">
-                                <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                                <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                            </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="container">
-                  <div class="copyright">
-                      <div class="row">
-                          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                               <a class="border-bottom" href="#"></a><p class="text-size-12">&copy;Copyright 2022, CODEBOOK</p> 
-                
-               
-                          </div>
-                          <div class="col-md-6 text-center text-md-end">
-                              <div class="footer-menu">
-                                  <!-- <p>All Right Reserved</p> -->
-                                  <p>Designed & Developed by FZ INFOTECH</p>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
           <!-- Footer End -->
   
   

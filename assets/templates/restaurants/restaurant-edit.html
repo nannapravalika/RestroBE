@@ -56,40 +56,28 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="{% url 'restro_dashboard' %}" class="nav-item nav-link"> Dashboard</a>
-                        <a href="{% url 'restro_add_menu' %}" class="nav-item nav-link ">Add Menu</a>
+                        <a href="{% url 'restro_dashboard' %}" class="nav-item nav-link "> Dashboard</a>
+                        <a href="{% url 'restro_add_menu' %}" class="nav-item nav-link">Add Tables</a>
 
-                        <a href="{% url 'restro_add_menu' %}" class="nav-item nav-link active">Edit Menu</a>
+                        <a href="{% url 'restro_view_menu' %}" class="nav-item nav-link active">View Tables</a>
+
                         
-                        <a href="{% url 'restro_view_menu' %}" class="nav-item nav-link">View Menu</a>
-                       
-                        <!-- <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Account</a>
-                            <div class="dropdown-menu m-0">
-                                <a href="{% url 'restro_view_food_orders' %}" class="dropdown-item">Orders Food</a>
-                                <a href="{% url 'restro_view_table_bookings' %}" class="dropdown-item">Bookings Table</a>
-                               
-                            </div>
-
-
-                        </div> -->
-
-
-                        <a href="{% url 'restro_view_food_orders' %}" class="nav-item nav-link">Orders</a>
-
                         <a href="{% url 'restro_view_table_bookings' %}" class="nav-item nav-link">Bookings</a>
+
+
 
 
                         <a href="{% url 'restro_view_feedback' %}" class="nav-item nav-link">Feedback</a>
                     </div>
                     <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
-                    
+
                 </div>
+            </nav>
             </nav>
 
             <div class="container-fluid py-5 bg-dark hero-header mb-5">
                 <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Edit Menu</h1>
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Edit Details</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -116,132 +104,52 @@
                     <h3 class="section-title ff-secondary  text-primary fw-normal" class="text-align:start;">Edit Menu</h3>
                     <h1 class="text-white mb-4"></h1>
                         <h1 class="text-white mb-4"></h1>
-                        <form>
-                            <div class="row g-3">
-
-                                <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select3">
-                                            
-                                            <option selected>  Category</option>
-                                            <option value="1">Veg</option>
-                                            <option value="2">Non-Veg</option>
-                                        </select>
-                                        <label for="select3"></label>
-                                      </div>
-                                </div>
-
-
-                                <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select3">
-                                            
-                                            <option selected> Sub Category</option>
-                                            <option value="1">Pasta</option>
-                                            <option value="2">Chinese</option>
-                                            <option value="3">Sandwich</option>
-                                            <option value="4">Burger</option>
-                                            <option value="5">Drinks</option>
-                                            <option value="6">Pizza</option>
-                                        </select>
-                                        <label for="select3"></label>
-                                      </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select1">
-                                            <option selected> Select Food Category</option>
-                                            <option value="1">Breakfast</option>
-                                            <option value="2">Lunch</option>
-                                            <option value="3">Snacks</option>
-                                            
-                                            <option value="4">Dinner</option>
-                                            
-                                        </select>
-                                        <label for="select1"></label>
-                                      </div>
-                                </div>
-
-
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% csrf_token %}
+                            {% if messages %}
+                            {% for message in messages %}
                                 
+                            <script>
+                                swal("Welcome!", "Registration Succesful!", "success");
+                            </script>
+                                
+                            {% endfor %}
+                            {% endif %}
+                            <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="text" placeholder="text">
-                                        <label for="text">Name of food item</label>
-                                    </div>
-                                </div>
-<!-- 
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected> select Catogary</option>
-                                    <option value="1">Breakfast</option>
-                                    <option value="2">Rice Bowl</option>
-                                    <option value="3">Chicken</option>
-                                    
-                                    <option value="1">Chicken</option>
-                                    <option value="2">Salads</option>
-                                    <option value="3">Burger</option>
-                                    <option value="1">Cake</option>
-                                    <option value="2">Juice</option>
-                                    <option value="3">Pizza</option>
-                                  </select> -->
-
-                                  
-
-                                <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <input type="tel" class="form-control" id="tel" placeholder="tel">
-                                        <label for="tel">Price</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-floating">
-                                        <select class="form-select" id="select2">
+                                        <select class="form-select" name="category">
                                             
-                                            <option selected> Quantity </option>
-                                            <option value="1">Single</option>
-                                            <option value="2">Full</option>
-                                            <option value="3">Family Pack</option>
-                                           
-                                           
+                                            <option selected>Category</option>
+                                            <option>Booths</option>
+                                            <option>Two to Four Person Tables</option>
+                                            <option>Bar Height Table</option>
+                                            <option>Family Dinning Table</option>
+                                            <option>Outdoor Table</option>
+                                            
                                         </select>
-                                        <label for="select2"></label>
-                                      </div>
+                                        <label for="select3"></label>
+                                    </div>
                                 </div>
-
-
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input name="price"  class="form-control" placeholder="Price">
+                                        <label for="tel">Price 1 Table (2-4 members)</label>
+                                    </div>
+                                </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Write details about your item</label>
+                                        <textarea class="form-control" name="details" placeholder="Write More Details" style="height: 100px"></textarea>
+                                        <label for="message">Write more details</label>
                                     </div>
                                 </div>
-
-                                
-
-                              
-                               
-                  
-                            <!-- <form>
-                                
-                                    <input type="file" name="file uplode" accept="image/*"/>
-                            </form>
-                   -->
-                            <div>
-                                <label for="formFileLg" class="form-label text-white ">Upload Image</label>
-                                <input class="form-control form-control-lg " id="formFileLg" type="file"  accept="image/*"/>
-                              </div>
-            
-
-                                <!-- <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                        <label for="message">Special Request</label>
-                                    </div>
-                                </div> -->
-                               
-
-                                    <a href="#" class="btn btn-primary w-100 py-3" type="submit">Add</a>
+                                <div>
+                                    <label for="formFileLg"  class="form-label text-white">Upload Image</label>
+                                    <input class="form-control form-control-lg "name="table_image" type="file"  accept="image/*"/>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary w-100 py-3" type="submit">Add</button>
                                 </div>
 
                                 

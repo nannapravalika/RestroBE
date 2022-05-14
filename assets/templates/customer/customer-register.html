@@ -102,40 +102,47 @@
                     </h3>
                     <h1 class="text-white mb-4"></h1>
                     <h1 class="text-white mb-4"></h1>
-                    <form>
+                    <form method="post">
+                        {% csrf_token %}
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                                     <label for="name"> Your name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
                                     <label for="email"> Email</label>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="Password" class="form-control" id="Password" placeholder="Password">
-                                    <label for="Password"> Password</label>
-                                </div>
-                            </div>
+                            
 
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="tel" class="form-control" id="number" placeholder="Mobile Numbe">
+                                    <input type="tel" name="mobile" class="form-control" id="number" placeholder="Mobile Numbe" required>
                                     <label for="number">Mobile no</label>
                                 </div>
                             </div>
-
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="Password" name="password" class="form-control" id="Password" placeholder="Password" required>
+                                    <label for="Password"> Password</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="Password" name="cpassword" class="form-control" id="Password" placeholder="Password" required>
+                                    <label for="Password">Confirm Password</label>
+                                </div>
+                            </div>
 
 
                             <div class="col-12">
-                                <a href="{% url 'user_login' %}" class="btn btn-primary w-100 py-3"
-                                    type="submit">Register</a>
+                                <button class="btn btn-primary w-100 py-3"
+                                    type="submit">Register</button>
                             </div>
                         </div>
 

@@ -15,16 +15,13 @@ class RestaurentRegModel(models.Model):
     class Meta:
         db_table='restaurent_registration_details'
 
-class RestaurentMenuModel(models.Model):
-    menu_id=models.AutoField(primary_key=True)
+class RestaurentTableModel(models.Model):
+    table_id=models.AutoField(primary_key=True)
     restaurent=models.ForeignKey(RestaurentRegModel,db_column="restaurent",on_delete=models.CASCADE,related_name='restaurent')
-    menu_food_type=models.CharField(max_length=100)
-    menu_category=models.CharField(max_length=100)
-    menu_name=models.CharField(max_length=100)
-    menu_price=models.CharField(max_length=100)  
-    menu_quantity=models.CharField(max_length=100)
-    menu_details=models.CharField(max_length=100)
-    menu_image=models.ImageField(upload_to='images/')
+    table_type=models.CharField(max_length=100)
+    table_price=models.CharField(max_length=100)  
+    table_details=models.CharField(max_length=100)
+    table_image=models.ImageField(upload_to='images/')
     
     class Meta:
-        db_table='restaurent_menu_details'
+        db_table='restaurent_table_details'

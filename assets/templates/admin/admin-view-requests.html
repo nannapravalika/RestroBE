@@ -36,97 +36,7 @@
       </a>
 
       </div>
-      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
-          <span class="icon-menu"></span>
-        </button>
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
-                </span>
-              </div>
-              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
-            </div>
-          </li>
-        </ul>
-        <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="icon-bell mx-0"></i>
-              <span class="count"></span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-success">
-                    <i class="ti-info-alt mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Application Error</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Just now
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="ti-settings mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">Settings</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    Private message
-                  </p>
-                </div>
-              </a>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="ti-user mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-normal">New user registration</h6>
-                  <p class="font-weight-light small-text mb-0 text-muted">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face28.jpg" alt="profile"/>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="ti-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item" href="{% url 'index' %}">
-                <i class="ti-power-off text-primary"></i>
-                Logout
-              </a>
-
-            </div>
-          </li>
-          <li class="nav-item nav-settings d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <i class="icon-ellipsis"></i>
-            </a>
-          </li>
-        </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-          <span class="icon-menu"></span>
-        </button>
-      </div>
+       
     </nav>
     <!-- partial -->
     <div class="container-xxl page-body-wrapper">
@@ -337,13 +247,7 @@
               
     
     
-              <li class="nav-item">
-                <a class="nav-link " href="{% url 'admin_view_orders' %}">
-                  <i class="bi bi-list-stars mr-3"></i>
-                  <span class="menu-title">Orders</span>
-                </a>
-              </li>
-    
+               
     
               <li class="nav-item">
                 <a class="nav-link " href="{% url 'admin_view_restaurants' %}">
@@ -357,6 +261,13 @@
                 
                   <i class="bi bi-chat-dots mr-3"></i>
                   <span class="menu-title"> Feedback</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{% url 'index' %}">
+                
+                  <i class="bi bi-chat-dots mr-3"></i>
+                  <span class="menu-title">Logout</span>
                 </a>
               </li>
     
@@ -403,61 +314,27 @@
                                 </tr>
                             </thead>
                             <tbody>
+                              {% for r in req %}
                                 <tr>
                                     
-                                    <td ><img style="width:70px; height: 80px;" src="/Restaurants/img/logo-1.jpg" ><br/><br/><span class="badge bg-info rounded-pill text-white ">Minarva</span></td>
-                                    <td>Jacob</td>
-                                    <td>Photoshop</td>
-                                    <td>Jacob</td>
+                                    <td ><img style="width:70px; height: 80px;" src="media/{{r.restaurent_logo}}" ><br/><br/><span class="badge bg-info rounded-pill text-white ">{{r.restaurent_name}}</span></td>
+                                    <td>{{r.restaurent_mobile}}</td>
+                                    <td>{{r.restaurent_email}}</td>
+                                    <td>{{r.restaurent_address}}</td>
 
-                                    <td>Peter</td>
+                                    <td><img style="width:70px; height: 80px;" src="media/{{r.restaurent_license}}"> <br/><br/></td>
                                    
-                                     <td><span class="badge bg-warning rounded-pill text-white">Pending</span></td>
+                                     <td><span class="badge bg-warning rounded-pill text-white">{{r.status}}</span></td>
                                     
-                                    <td><button type="button" class="btn btn-success "> <a href="#" class="text-white " style="text-decoration:none ;">Accept</a></button>
+                                    <td><button type="button" class="btn btn-success "> <a href="/accept_restaurent/{{r.restaurent_id}}" class="text-white " style="text-decoration:none ;">Accept</a></button>
     
   
  
-                                      <button type="button" class="btn btn-danger "> <a href="#" class="text-white" style="text-decoration:none;">Reject</a></button></td>
+                                      <button type="button" class="btn btn-danger "> <a href="/reject_restaurent/{{r.restaurent_id}}" class="text-white" style="text-decoration:none;">Reject</a></button></td>
                                 </tr>
+                                {% endfor %}
                                
-                               
-                                <tr>
-                                   
-                                   <td><img style="width:70px; height: 80px;"  src="/Restaurants/img/logo-2.jpg"><br><br><span class="badge bg-info rounded-pill text-white" >Bawarchi</span></td>
-                                    <td>Jacob</td>
-                                    <td>Photoshop</td>
-                                    <td>Jacob</td>
-                                    
-                                   
-                                    <td>After effects</td>
-                                    
-                                    <td><span class="badge bg-warning rounded-pill text-white">Pending</span></td>
-
-
-                                    <td><button type="button" class="btn btn-success "> <a href="#" class="text-white" style="text-decoration:none">Accept</a></button>
-    
-  
- 
-                                      <button type="button" class="btn btn-danger "> <a href="#" class="text-white" style="text-decoration:none">Reject</a></button></td>
-                                </tr>
-                                <tr>
-                                   
-                                    <td><img style="width:70px; height: 80px;" src="/Restaurants/img/logo-3.jpg"><br><br><span class="badge bg-info rounded-pill text-white">Paradise</span></td>
-                                    <td>Jacob</td>
-                                    <td>Photoshop</td>
-                                   
-                                    <td>Peter</td>
-                                    <td>After effects</td>
-                                    <td><span class="badge bg-warning rounded-pill text-white">Pending</span></td>
-
-                                    <td><button type="button" class="btn btn-success "> <a href="#" class="text-white" style="text-decoration:none">Accept</a></button>
-    
-  
- 
-                                      <button type="button" class="btn btn-danger "> <a href="#" class="text-white" style="text-decoration:none">Reject</a></button></td>
-                                </tr>
-                               
+                                 
                             </tbody>
                         </table>
                     </div>

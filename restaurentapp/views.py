@@ -1,6 +1,6 @@
 from urllib import request
 from django.shortcuts import render,redirect
-from .models import RestaurentMenuModel,RestaurentRegModel
+from .models import *
 from django.contrib import messages
 
 # Create your views here.
@@ -24,13 +24,14 @@ def restro_reg(request):
 def restro_login(request):
     if request.method=="POST":
         print("valid")
-        name = request.POST.get('email')
-        password =request.POST.get('Password')
+        name= request.POST.get('email')
+        password=request.POST.get('password')
         
         try:
-           check=RestaurentRegModel.objects.get(restaurent_email=name,password=password)
-           request.session["email"]=check.restaurent_email
-           return redirect ('student_home')
+           check=RestaurentRegModel.objects.get(restaurent_email=name,restaurent_password=password)
+           print("ok")
+           request.session["restaurent_id"]=check.restaurent_id
+           return redirect ('restro_dashboard')
         except: 
             messages.error(request, "Message sent." )
     return render(request,'restaurants/restaurant-login.html')
@@ -39,6 +40,16 @@ def restro_dashboard(request):
     return render(request,'restaurants/restaurant-dashboard.html')
 
 def restro_add_menu(request):
+    restaurent_id=request.session["restaurent_id"]
+    if request.method=="POST" and request.FILES['table_image']:
+        restaurent=RestaurentRegModel.objects.filter(restaurent_id=restaurent_id).first()
+        table_type=request.POST.get("category")
+        table_price=request.POST.get("price")
+        table_details=request.POST.get("details")
+        table_image=request.FILES['table_image']
+        RestaurentTableodel.objects.create(restaurent=restaurent,table_type=table_type,table_price=table_price,table_details=table_details,table_image=table_image)
+        messages.error(request, "Message sent." )
+        
     return render(request,'restaurants/restaurant-add-menu.html')
 
 def restro_view_menu(request):

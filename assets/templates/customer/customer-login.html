@@ -99,12 +99,13 @@
                     <h3 class="section-title ff-secondary  text-primary fw-normal" class="text-align:start;">Customer
                         Login</h3>
                     <h1 class="text-white mb-4"></h1>
-                    <form>
+                    <form method="post">
+                        {% csrf_token %}
                         <div class="row g-3">
 
                             <div class="col-md-12 px-5">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email"
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email"
                                         required>
                                     <label for="email">Your Email</label>
                                 </div>
@@ -112,7 +113,7 @@
 
                             <div class="col-md-12 px-5">
                                 <div class="form-floating">
-                                    <input type="Password" class="form-control" id="Password" placeholder="Password">
+                                    <input type="Password" name="password" class="form-control" id="Password" placeholder="Password">
                                     <label for="Password">password</label>
                                 </div>
                             </div>
@@ -130,8 +131,8 @@
 
 
                             <div>
-                                <a href="{% url 'user_dashboard' %}" class="btn btn-primary py-3"
-                                    type="submit" style="width:100px">Login</a>
+                                <button class="btn btn-primary py-3"
+                                    type="submit" style="width:100px">Login</button>
                                 <a href="{% url 'user_reg' %}" class="btn btn-primary py-3"
                                     type="submit" style="width:100px">Register</a>
                             </div>

@@ -57,32 +57,29 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="{% url 'user_dashboard' %}" class="nav-item nav-link "> Dashboard</a>
-                        
-                        
-                        <a href="{% url 'user_view_menu' %}" class="nav-item nav-link">View Menu</a>
-
-                        <a href="{% url 'user_order_food' %}" class="nav-item nav-link">Order Food</a>
+                        <a href="{% url 'user_dashboard' %}" class="nav-item nav-link active "> Dashboard</a>
 
                         <a href="{% url 'user_book_table' %}" class="nav-item nav-link">Book Table</a>
-                       
-                        
+
+
 
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Account</a>
                             <div class="dropdown-menu m-0">
-                                <a href="{% url 'user_view_bookings' %}" class="dropdown-item active">Booking Status</a>
+                                <a href="{% url 'user_view_bookings' %}" class="dropdown-item">Booking
+                                    Status</a>
                                 <a href="{% url 'user_profile' %}" class="dropdown-item">My Profile </a>
-                                <a href="{% url 'user_view_orders' %}" class="dropdown-item">My Orders View </a>
-                               
+                                 
+
                             </div>
                         </div>
 
                         <a href="{% url 'user_feedback' %}" class="nav-item nav-link">Feedback</a>
                     </div>
                     <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
-                    
+
                 </div>
+            </nav>
             </nav>
 
             <div class="container-fluid py-5 bg-dark hero-header mb-5">

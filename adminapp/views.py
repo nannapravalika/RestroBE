@@ -1,5 +1,5 @@
-from django.shortcuts import render,redirect
-
+from django.shortcuts import render,redirect,get_object_or_404
+from restaurentapp.models import *
 # Create your views here.
  
 def admin_login(request):
@@ -26,10 +26,24 @@ def admin_view_customers(request):
     return render(request,'admin/admin-view-customers.html')
 
 def admin_view_requests(request):
-    return render(request,'admin/admin-view-requests.html')
+    req=RestaurentRegModel.objects.all()
+    return render(request,'admin/admin-view-requests.html',{'req':req})
+
+def accept_restaurant(request,id):
+    obj=get_object_or_404(RestaurentRegModel,restaurent_id=id)
+    obj.status="Accepted"
+    obj.save(update_fields=["status"])
+    return redirect("admin_view_requests")
+
+def reject_restaurant(request,id):
+    obj=get_object_or_404(RestaurentRegModel,restaurent_id=id)
+    obj.status="Rejected"
+    obj.save(update_fields=["status"])
+    return redirect("admin_view_requests")
 
 def admin_view_restaurants(request):
-    return render(request,'admin/admin-view-restaurants.html')
+    req=RestaurentRegModel.objects.all()
+    return render(request,'admin/admin-view-restaurants.html',{'req':req})
 
 def admin_view_restaurant_menu(request):
     return render(request,'admin/admin-view-restaurant-menu.html')

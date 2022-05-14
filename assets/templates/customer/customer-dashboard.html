@@ -60,11 +60,6 @@
                     <div class="navbar-nav ms-auto py-0 pe-4">
                         <a href="{% url 'user_dashboard' %}" class="nav-item nav-link active "> Dashboard</a>
 
-
-                        <a href="{% url 'user_view_menu' %}" class="nav-item nav-link">View Menu</a>
-
-                        <a href="{% url 'user_order_food' %}" class="nav-item nav-link">Order Food</a>
-
                         <a href="{% url 'user_book_table' %}" class="nav-item nav-link">Book Table</a>
 
 
@@ -75,8 +70,7 @@
                                 <a href="{% url 'user_view_bookings' %}" class="dropdown-item">Booking
                                     Status</a>
                                 <a href="{% url 'user_profile' %}" class="dropdown-item">My Profile </a>
-                                <a href="{% url 'user_view_orders' %}" class="dropdown-item">My Orders View
-                                </a>
+                                 
 
                             </div>
                         </div>
@@ -106,9 +100,9 @@
         <!-- Main -->
         <!-- search bar -->
         <div class="container h-100">
-            <div class="d-flex justify-content-center h-100">
+            <div class="col-5 d-flex justify-content-center h-100">
                 <div class="searchbar text-white">
-                    <input class="search_input" type="text" name="" placeholder="Restaurant name or a dish...">
+                    <input class="search_input" type="text" name="" placeholder="Search">
                     <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
                 </div>
             </div>
@@ -119,68 +113,29 @@
         <!-- cards start -->
         <center>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3">
-                        <div class="card"  style="width: 18rem;">
-                            <a href="{% url 'user_order_food' %}"> <img src="/Customers/img/order5.jpg"
-                                    class="card-img-top" alt="...">
+                <div class="row justify-content-evenly">
+                    {% for r in  req %}
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img src="/media/{{r.restaurent_logo}}"
+                                        class="card-img-top" alt="...">
 
-                                <div class="card-body ">
-                                    <h4>Bavarchi</h4>
-                                    <h6 text-end><small><i class="bi-alarm bi-alarm-primary">38 min .2km </i> </small></h6>
-                                    <h6><small> for one</i> </small></h6>
-                                    <a href="#" class="btn btn-primary w-100 collg-12">60% off up to 120</a>
-                                </div>
-                            </a>
+                                    <div class="card-body ">
+                                        <h4>{{r.restaurent_name}}</h4>
+                                        <h6 text-end><small>{{r.restaurent_address}}</i> </small>
+                                            {% comment %} <i class="bi-alarm bi-alarm-primary"> {% endcomment %}
+                                        </h6>
+                                        <div class="mb-2">
+                                            <span class="badge bg-success"><i class="fa fa-star text-white"></i></span>
+
+                                        </div>
+                                        <a href="/user_book_table_res/{{r.restaurent_id}}"
+                                        class="btn btn-primary w-100 col-lg-12">Book Table</a>
+                                    </div>
+                                
+                            </div>
                         </div>
-                    </div>
-
-
-                    <div class="col-lg-3">
-                        <div class="card" style="width: 18rem;">
-                            <a href="{% url 'user_order_food' %}"> <img src="/Customers/img//order.jpg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4>Paradise</h4>
-                                    <h6><small><i class="bi-alarm bi-alarm-primary">38 min .2km </i> </small></h6>
-                                    <h6><small> for one</i> </small></h6>
-                                    <a href="#" class="btn btn-primary w-100 collg-12">40% off up to 200</a>
-
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-3">
-                        <div class="card" style="width: 18rem;">
-                            <a href="{% url 'user_order_food' %}"> <img src="/Customers/img/order1.jpg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4>Shah Ghouse</h4>
-                                    <h6><small><i class="bi-alarm bi-alarm-primary">38 min .2km </i> </small></h6>
-                                    <h6><small>for one</i> </small></h6>
-                                    <a href="#" class="btn btn-primary w-100 collg-12">30% off up to 150</a>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-3">
-                        <div class="card" style="width: 18rem; ">
-                            <a href="{% url 'user_order_food' %} "> <img src="/Customers/img/order6.jpg"
-                                    class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h4>Taaza</h4>
-                                    <h6><small><i class="bi-alarm bi-alarm-primary">38 min .2km </i> </small></h6>
-                                    <h6><small> for one</i> </small></h6>
-                                    <a href="#" class="btn btn-primary w-100 collg-12">50% off up to 100</a>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </center>

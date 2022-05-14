@@ -56,23 +56,25 @@
                     <span class="fa fa-bars"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="{% url 'restro_dashboard' %}" class="nav-item nav-link"> Dashboard</a>
-                        <a href="{% url 'restro_add_menu' %}" class="nav-item nav-link">Add Menu</a>
-                        
-                        <a href="{% url 'restro_view_menu' %}" class="nav-item nav-link">View Menu</a>
-                       
-                        <a href="{% url 'restro_view_food_orders' %}" class="nav-item nav-link"> Orders</a>
+                  <div class="navbar-nav ms-auto py-0 pe-4">
+                      <a href="{% url 'restro_dashboard' %}" class="nav-item nav-link "> Dashboard</a>
+                      <a href="{% url 'restro_add_menu' %}" class="nav-item nav-link">Add Tables</a>
 
-                        <a href="{% url 'restro_view_table_bookings' %}" class="nav-item nav-link  active"> Bookings</a>
+                      <a href="{% url 'restro_view_menu' %}" class="nav-item nav-link">View Tables</a>
+
+                      
+                      <a href="{% url 'restro_view_table_bookings' %}" class="nav-item nav-link active">Bookings</a>
 
 
-                        <a href="{% url 'restro_view_feedback' %}" class="nav-item nav-link">Feedback</a>
-                    </div>
-                    <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
-                    
-                </div>
-            </nav>
+
+
+                      <a href="{% url 'restro_view_feedback' %}" class="nav-item nav-link">Feedback</a>
+                  </div>
+                  <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
+
+              </div>
+          </nav>
+            
 
             <div class="container-fluid py-5 bg-dark hero-header mb-5">
                 <div class="container text-center my-5 pt-5 pb-4">

@@ -18,6 +18,7 @@ from django.urls import path
 
 from django.conf.urls.static import static
 from django.conf import settings
+
 from mainapp import views as main_views
 from adminapp import views as admin_views
 from restaurentapp import views as restro_views
@@ -39,8 +40,10 @@ urlpatterns = [
     path('admin-view-customers',admin_views.admin_view_customers,name="admin_view_customers"),
     path('admin-view-orders',admin_views.admin_view_orders,name="admin_view_orders"),
     path('admin-view-requests',admin_views.admin_view_requests,name="admin_view_requests"),
-    path('admin-view-restaurant-menu',admin_views.admin_view_restaurant_menu,name="admin_view_restaurant_menu"),
-    path('admin-view-restaurants',admin_views.admin_view_restaurants,name="admin_view_restaurants"),
+    path("accept_restaurent/<int:id>/",admin_views.accept_restaurant,name="accept-restaurent"),
+    path("reject_restaurent/<int:id>/",admin_views.reject_restaurant,name="reject-restaurent"),
+    path('admin-view-restaurent-menu',admin_views.admin_view_restaurant_menu,name="admin_view_restaurant_menu"),
+    path('admin-view-restaurents',admin_views.admin_view_restaurants,name="admin_view_restaurants"),
     
     
     
@@ -62,7 +65,7 @@ urlpatterns = [
     path ('user-profile',user_views.user_profile,name="user_profile"),
     path ('user-book-table',user_views.user_book_table,name="user_book_table"),
     path ('user-view-bookings',user_views.user_view_bookings,name="user_view_bookings"),
-    path ('user-order-food',user_views.user_order_food,name="user_order_food"),
+    path ('user_book_table_res/<int:id>/',user_views.user_book_table_res,name="user_book_table_res"),
     path ('user-view-orders',user_views.user_view_orders,name="user_view_orders"),
     path ('user-feedback',user_views.user_feedback,name="user_feedback"),
     path ('user-view-menu',user_views.user_view_menu,name="user_view_menu"),
