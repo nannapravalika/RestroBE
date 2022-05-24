@@ -13,6 +13,7 @@
         <link href="{% static 'main/img/favicon.ico'%}" rel="icon">
     
         <!-- Google Web Fonts -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
@@ -74,7 +75,7 @@
                             </div>
                         </div>
 
-                        <a href="{% url 'user_feedback' %}" class="nav-item nav-link">Feedback</a>
+                    
                     </div>
                     <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
 
@@ -115,90 +116,42 @@
                 <th>Customer Name</th>
                 <th>Order Id</th>
                 <th>No of Members</th>
+                <th>Table Type</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Price</th>
                 <th>Status</th>
-                
+                <th></th>
+                 
               </tr>
             </thead>
             <tbody style="background-color:white">
-              <tr>
-                <td>Jacob</td>
-                <td>Photoshop</td>
-                <td>Photoshop</td>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td>After effects</td>
-                <td><span class="badge bg-success rounded-pill">Completed</span></td>
-                
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Photoshop</td>
-                <td>Photoshop</td>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td>After effects</td>
-                <td><span class="badge bg-warning rounded-pill">Pending</span></td>
-                
-              </tr>
-
-              <tr>
-                <td>Messsy</td>
-                <td>Flash</td>
-                <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td>After effects</td>
-                <td><span class="badge bg-danger rounded-pill">Cancelled</span></td>
-                
-              </tr>
-              <tr>
-                <td>John</td>
-                <td>Premier</td>
-                <td class="text-danger"> 35.00% <i class="ti-arrow-down"></i></td>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td>After effects</td>
-                <td><span class="badge bg-success rounded-pill">Completed</span></td>
-               
-              </tr>
-              <tr>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td class="text-success"> 82.00% <i class="ti-arrow-up"></i></td>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td>After effects</td>
-                <td><span class="badge bg-warning rounded-pill">Pending</span></td>
-                
-              </tr>
-              <tr>
-                <td>Dave</td>
-                <td>53275535</td>
-                <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                <td>Peter</td>
-                <td>After effects</td>
-                <td>After effects</td>
-                <td><span class="badge bg-danger rounded-pill">Cancelled</span></td>
-                </tr>
-
+                {% for u in  user %}
                 <tr>
+                  <td>{{u.user.user_name}}</td>
+                  <td>{{u.booking_id}}</td>
+                  <td class="text-danger">{{u.members}}<i class="ti-arrow-down"></i></td>
+                  <td>{{u.table_category}}</td>
+                  <td >{{u.date}}</td>
+                  <td>{{u.time}}</td>
+                  <td>Prize</td>
+                  <td>{{u.status}}</td>
                    
-                    <td>53275535</td>
-                    <td class="text-success"> 98.05% <i class="ti-arrow-up"></i></td>
-                    <td>Peter</td>
-                    <td>After effects</td>
-                    <td>After effects</td>
-                   
-                    <td >Peter</td>
-                    <td><span class="badge bg-success rounded-pill ">Completed</span></td>
-
-                    </tr>
-             
-
-            </tbody>
+                  <td >
+                      {% if u.status == "Payment Pending" %}
+                      <button type="button" class="btn btn-success"> <a href="/user-payment/{{u.booking_id}}" class="text-white">Pay Now</a>
+                      </button>
+                    {% endif %}
+                     
+                        {% if u.status == "Booked" %}
+                        <button type="button" class="btn btn-success"> <a href="/user-feedback/{{u.user_restaurent.restaurent_id}}" class="text-white">Feed Back</a>
+                        </button>
+                      {% endif %} 
+                 </td>  
+                </tr>
+                {% endfor %}
+                 
+                 </tbody>
           </table>
         </div>
       </div>

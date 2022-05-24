@@ -57,7 +57,8 @@ urlpatterns = [
     path ('restro-view-feedback',restro_views.restro_view_feedback,name="restro_view_feedback"),
     path ('restro-food-orders',restro_views.restro_view_food_orders,name="restro_view_food_orders"),
     path ('restro-table_bookings',restro_views.restro_view_table_bookings,name="restro_view_table_bookings"),
-    
+    path("accept-booking/<int:id>/",restro_views.accept_booking,name="accept-booking"),
+    path("reject-booking/<int:id>/",restro_views.reject_booking,name="reject-booking"),
     #customer
     path ('user-login',user_views.user_login,name="user_login"),
     path ('user-reg',user_views.user_reg,name="user_reg"),
@@ -65,13 +66,15 @@ urlpatterns = [
     path ('user-profile',user_views.user_profile,name="user_profile"),
     path ('user-book-table',user_views.user_book_table,name="user_book_table"),
     path ('user-view-bookings',user_views.user_view_bookings,name="user_view_bookings"),
+    path('user-payment/<int:id>/',user_views.user_payment,name="user-payment"),
     path ('user_book_table_res/<int:id>/',user_views.user_book_table_res,name="user_book_table_res"),
     path ('user-view-orders',user_views.user_view_orders,name="user_view_orders"),
-    path ('user-feedback',user_views.user_feedback,name="user_feedback"),
+    path ('user-feedback/<int:id>/',user_views.user_feedback,name="user_feedback"),
     path ('user-view-menu',user_views.user_view_menu,name="user_view_menu"),
+    
     
     
     
 ]
 
-urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+# urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

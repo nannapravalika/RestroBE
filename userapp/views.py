@@ -31,15 +31,45 @@ def user_reg(request):
     return render(request,'customer/customer-register.html')
 
 def user_dashboard(request):
+    user=request.session["user_id"]
+    use=UserRegModel.objects.filter(user_id=user)
+    user=UserRegModel.objects.filter(user_id=user).first()
+    res=RestaurentRegModel.objects.filter(status="Accepted")
+    if request.method=="POST":
+        date=request.POST.get("date")
+        time=request.POST.get("time")
+        restaurent_name=request.POST.get("restaurant")
+        table_category=request.POST.get("table")
+        members=request.POST.get("members")
+        srequest=request.POST.get("srequest")
+        
+        
+        UserBookTableModel.objects.create(user=user,date=date,time=time,restaurent_name=restaurent_name,table_category=table_category,members=members,request=srequest)
+   
     req=RestaurentRegModel.objects.filter(status="Accepted")
     
-    return render(request,'customer/customer-dashboard.html',{'req':req})
+    return render(request,'customer/customer-dashboard.html',{'req':req,"res":res, "user":use})
 
 def user_profile(request):
     return render(request,'customer/customer-my-profile.html')
 
-def user_feedback(request):
-    return render(request,'customer/customer-give-feedback.html')
+def user_feedback(request,id):
+    userr=request.session["user_id"]
+    use=UserRegModel.objects.filter(user_id=userr)
+    
+    user=UserBookTableModel.objects.filter(booking_id=id)
+    if request.method=="POST":
+        message=request.POST.get("message")
+        rate=request.POST.get("star")
+        user_reg=UserRegModel.objects.filter(user_id=userr).first()
+        user_booking=UserBookTableModel.objects.filter(booking_id=id).first()
+        user_restaurent=RestaurentRegModel.objects.filter(restaurent_id=id)
+        
+        
+        UserFeedbackModel.objects.create(user=user_reg,feedback=message,rating=rate,user_booking=user_booking)
+    
+    
+    return render(request,'customer/customer-give-feedback.html',{"user":user,"user":use})
 
 def user_view_orders(request):
     return render(request,'customer/customer-my-orders-view.html')
@@ -50,11 +80,31 @@ def user_book_table_res(request,id):
     return render(request,'customer/customer-order-food.html',{'req':req})
 
 def user_view_bookings(request):
-    return render(request,'customer/customer-view-booking-status.html')
+    user=request.session["user_id"]
+    user=UserBookTableModel.objects.filter(user=user)
+    return render(request,'customer/customer-view-booking-status.html',{"user":user})
+
+def user_payment(request,id):
+    user=UserBookTableModel.objects.filter(booking_id=id)
+    return render(request,'customer/customer-payment.html',{"user":user})
+
 
 def user_book_table(request):
+    user=request.session["user_id"]
+    use=UserRegModel.objects.filter(user_id=user)
+    user=UserRegModel.objects.filter(user_id=user).first()
     res=RestaurentRegModel.objects.filter(status="Accepted")
-    return render(request,'customer/customer-table-booking.html',{"res":res})
+    if request.method=="POST":
+        date=request.POST.get("date")
+        time=request.POST.get("time")
+        restaurent_name=request.POST.get("restaurant")
+        table_category=request.POST.get("table")
+        members=request.POST.get("members")
+        srequest=request.POST.get("srequest")
+        
+        
+        UserBookTableModel.objects.create(user=user,date=date,time=time,restaurent_name=restaurent_name,table_category=table_category,members=members,request=srequest)
+    return render(request,'customer/customer-table-booking.html',{"res":res, "user":use})
 
 def user_view_menu(request):
     return render(request,'customer/customer-view-menu.html')

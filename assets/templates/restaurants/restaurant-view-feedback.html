@@ -13,6 +13,8 @@
         <link href="{% static 'main/img/favicon.ico'%}" rel="icon">
     
         <!-- Google Web Fonts -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
@@ -28,6 +30,7 @@
     
         <!-- Customized Bootstrap Stylesheet -->
         <link href="{% static 'main/css/bootstrap.min.css'%}" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'main/css/feedback.css'%}">
     
         <!-- Template Stylesheet -->
         <link href="{% static 'main/css/style.css'%}" rel="stylesheet">
@@ -101,62 +104,66 @@
                             <code></code>
                         </p>
                         <div class="table-responsive">
-                            <table class="table table-borderless ">
-                            <thead style="background-color:orange; color:black">
-                                <tr class="text-dark text-center" style="font-size:30px">
-                            <th >Customer Feedback</th>
-                                
-                                </tr>
-                            </thead>
-                            <tbody style="background-color:white; ">
-                                <tr>
-                                <td>
-                                <div class="d-flex">
-                                    <img  src="/Admin/images/faces/face1.jpg" style=" width: 40px; height: 40px;  margin-right: 10px;  border-radius: 100%;" alt="user">
-                                    <div style="text-align: start; margin-right: 20px;">
-                                    <p class="text-info mb-1">Isabella Becker</p>
-                                    <p class="mb-0">Sales dashboard have been created. You have done a great job #TW111 </p>
-                                    <small>9:30 am</small>
-                                    </div>
-                                </div>
-                                </td>
-                                </tr>
-
-                                <tr>
-                                <td>
-                                <div class="d-flex">
-                                    <img src="/Admin/images/faces/face10.jpg" style=" width: 40px; height: 40px;  margin-right: 10px;  border-radius: 100%;" alt="user">
-                                    <div style="text-align: start; margin-right: 20px;">
-                                    <p class="text-info mb-1">Adam Warren</p>
-                                    <p class="mb-0">You have done a great job #TW111. Sales dashboard have been created. You have done a great job #TW111 </p>
-                                    <small>10:30 am</small>
-                                    </div>
-                                </td>
-                                
-                                </tr>
-                                <tr>
-                                
-                                <td>
-                                    <div class="d-flex">
-                                    <img src="/Admin/images/faces/face2.jpg" style=" width: 40px; height: 40px;  margin-right: 10px;  border-radius: 100%;" alt="user">
-                                    <div style="text-align: start; margin-right: 20px;">
-                                    <p class="text-info mb-1">Leonard Thornton</p>
-                                    <p class="mb-0">Sales dashboard have been created. You have done a great job #TW111</p>
-                                    <small>11:30 am</small>
-                                    </div>
-                                    </div>
-                                </td>
-                                </tr>
-                                <tr>
-                                
-                                
-                                </tr>
-                                <tr>
-                                
-                                
-                                </tr>
-                            </tbody>
-                            </table>
+                            <table class="table  ">
+                                <thead style="background-color:orange">
+                                  <tr class="text-white">
+                                    <th>Customer Name</th>
+                                    <th>Feedback</th>
+                                   
+                                    <th>Date</th>
+                                    <th>Rating</th>
+                                    
+                                  </tr>
+                                </thead>
+                                <tbody style="background-color:white ">
+                                  {% for f in  feed %}
+                                  <tr>
+                                    <td>{{f.user.user_name}}</td>
+                                    <td>{{f.feedback}}</td>
+                                    <td>{{f.date}}</td>
+                                    <td>
+                                    {% if f.rating == '1' %}
+                                    
+                                    <span class="fa fa-star checked"></span>
+                                     
+                                     {% endif %}
+                                     {% if f.rating == '2' %}
+                                    
+                                     <span class="fa fa-star checked"></span>
+                                     <span class="fa fa-star checked"></span>
+                                    
+ 
+                                     {% endif %}
+                                    {% if f.rating == '3' %}
+                                    
+                                    <i class="fa fa-star clicked"></i>
+                                    <i class="fa fa-star clicked"></i>
+                                    <i class="fa fa-star clicked"></i>
+                                     
+                                     {% endif %}
+                                     {% if f.rating == '4' %}
+                                    
+                                     <i class="fa fa-star clicked"></i>
+                                     <i class="fa fa-star clicked"></i>
+                                     <i class="fa fa-star clicked"></i>
+                                     <i class="fa fa-star clicked"></i>
+                                    
+                                      
+                                     {% endif %}
+                                     {% if f.rating == '5' %}
+                                    
+                                     <i class="fa fa-star clicked"></i>
+                                     <i class="fa fa-star clicked"></i>
+                                     <i class="fa fa-star clicked"></i>
+                                     <i class="fa fa-star clicked"></i>
+                                     <i class="fa fa-star clicked"></i>
+                                     
+                                     {% endif %}
+                                    </td>
+                                    </tr>
+                                  {% endfor %}
+                                </tbody>
+                              </table>
                         </div>
                         </div>
                     </div>

@@ -13,6 +13,8 @@
         <link href="{% static 'main/img/favicon.ico'%}" rel="icon">
     
         <!-- Google Web Fonts -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+       
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
@@ -28,7 +30,7 @@
     
         <!-- Customized Bootstrap Stylesheet -->
         <link href="{% static 'main/css/bootstrap.min.css'%}" rel="stylesheet">
-    
+        <link rel="stylesheet" href="{% static 'main/css/feedback.css'%}">
         <!-- Template Stylesheet -->
         <link href="{% static 'main/css/style.css'%}" rel="stylesheet">
     </head>
@@ -74,7 +76,7 @@
                             </div>
                         </div>
 
-                        <a href="{% url 'user_feedback' %}" class="nav-item nav-link">Feedback</a>
+                        
                     </div>
                     <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
 
@@ -106,25 +108,24 @@
                     <h3 class="section-title ff-secondary  text-primary fw-normal" class="text-align:start;">Customer Feedback</h3>
                     <h1 class="text-white mb-4"></h1>
                     <h1 class="text-white mb-4"></h1>
-                    <form>
+                    <form method="post">
+                        {% csrf_token %}
                         <div class="row g-3">
-
-                            
-
-        
-
+                            {% for u in user %}
                             <div class="col-md-6">
+                               
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" value="{{u.user_name}}">
                                     <label for="name"> Your name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" value="{{u.user_email}}">
                                     <label for="email"> Email</label>
                                 </div>
                             </div>
+                            {% endfor %}
 
                             <!-- <div class="col-md-6">
                                 <div class="form-floating">
@@ -142,16 +143,33 @@
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                    <textarea class="form-control" name="message" placeholder="Special Request" id="message" style="height: 100px"></textarea>
                                     <label for="message"> Message</label>
                                 </div>
                             </div>
-
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <div class="stars">
+                                    
+                                        <input class="star star-5" value="5" id="star-5" type="radio" name="star"/>
+                                        <label class="star star-5" for="star-5"></label>
+                                        <input class="star star-4" value="4" id="star-4" type="radio" name="star"/>
+                                        <label class="star star-4" for="star-4"></label>
+                                        <input class="star star-3" value="3" id="star-3" type="radio" name="star"/>
+                                        <label class="star star-3" for="star-3"></label>
+                                        <input class="star star-2" value="2" id="star-2" type="radio" name="star"/>
+                                        <label class="star star-2" for="star-2"></label>
+                                        <input class="star star-1" value="1" id="star-1" type="radio" name="star"/>
+                                        <label class="star star-1" for="star-1"></label>
+                                    
+                                    </div>
+                                </div>
+                            </div>    
 
 
                             <div class="col-12">
-                                <a href="/Customers/customer-login.html" class="btn btn-primary w-100 py-3"
-                                    type="submit">Send Feedback</a>
+                                <button class="btn btn-primary w-100 py-3"
+                                    type="submit">Send Feedback</button>
                             </div>
                         </div>
 

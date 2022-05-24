@@ -74,7 +74,7 @@
                             </div>
                         </div>
 
-                        <a href="{% url 'user_feedback' %}" class="nav-item nav-link">Feedback</a>
+                        
                     </div>
                     <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
 
@@ -113,99 +113,108 @@
                 <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
                     <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
                     <h1 class="text-white mb-4">Book A Table Online</h1>
-                    <form method="post">
-                        {% csrf_token %}
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name">
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
+                                <form method="post">
+                                    {% csrf_token %}
+                                
+                                    <div class="row g-3">
+                                        {% for u in user %}
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{u.user_name}}">
+                                                <label for="name">Your Name</label>
+                                            </div>
+                                        </div>
 
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="tel" name="mobile" class="form-control" id="number" placeholder="Phone Number">
-                                    <label for="number">Phone Number</label>
-                                </div>
-                            </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="tel" name="mobile" class="form-control" id="number" placeholder="Phone Number" value="{{u.user_mobile}}">
+                                                <label for="number">Phone Number</label>
+                                            </div>
+                                        </div>
 
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating date" id="date3" data-target-input="nearest">
-                                    <input type="text" name="date" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
-                                    <label for="datetime">Date & Time</label>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-6">
-
-                                <div class="form-floating">
-                                    <select class="form-select" name="restaurant" id="select3">
-                                        <option>Select a Restaurant</option>
-                                        {% for r in res %}
-                                        <option>{{r.restaurent_name}}</option>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" value="{{u.user_email}}">
+                                                <label for="email">Your Email</label>
+                                            </div>
+                                        </div>
                                         {% endfor %}
-                                        {% comment %} <option value="1">Bawarchi</option>
-                                        <option value="2">Paradise</option>
-                                        <option value="3">Shaghouse</option>
-                                        <option value="4">Novotal</option>
-                                        <option value="5">Kritunga</option>
-                                        <option value="6">Swagath Grand</option>
-                                        <option value="7">Minerva Grand</option> {% endcomment %}
-  
-                                    </select>
-                                    <label for="select3"></label>
-                                  </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select class="form-select" name="table" id="select1">
-                                        <option>Table Category</option>
-                                        <option>Booths</option>
-                                        <option>Two to Four Person Tables</option>
-                                        <option>Bar Height Table</option>
-                                        <option>Family Dinning Table</option>
-                                        <option>Outdoor Table</option>
-                                    </select>
-                                    <label for="select1"></label>
-                                  </div>
-                            </div>
-                            
-                           
+                                        <div class="col-md-6">
+                                            <div class="form-floating" data-target-input="nearest">
+                                                <input type="date" name="date" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                                <label for="datetime">Date</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating"  data-target-input="nearest">
+                                                <input type="time" name="time" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                                <label for="datetime">Time</label>
+                                            </div>
+                                        </div>
 
-                           
 
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <select class="form-select" name="members" id="select1">
-                                        <option value="0">No of Members</option>
-                                        <option >2-4</option>
-                                        <option >4-8</option>
-                                        <option >8-10</option>
-                                        <option >10+</option>
-                                    </select>
-                                    <label for="select1"></label>
-                                  </div>
-                            </div>
+                                        <div class="col-md-6">
 
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control" name="srequest" placeholder="Special Request" id="message" style="height: 100px"></textarea>
-                                    <label for="message">Special Request</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
-                            </div>
-                        </div>
-                    </form>
+                                            <div class="form-floating">
+                                                <select class="form-select" name="restaurant" id="select3">
+                                                    <option>Select a Restaurant</option>
+                                                    {% for r in res %}
+                                                    <option>{{r.restaurent_name}}</option>
+                                                    {% endfor %}
+                                                    {% comment %} <option value="1">Bawarchi</option>
+                                                    <option value="2">Paradise</option>
+                                                    <option value="3">Shaghouse</option>
+                                                    <option value="4">Novotal</option>
+                                                    <option value="5">Kritunga</option>
+                                                    <option value="6">Swagath Grand</option>
+                                                    <option value="7">Minerva Grand</option> {% endcomment %}
+            
+                                                </select>
+                                                <label for="select3"></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <select class="form-select" name="table" id="select1">
+                                                    <option>Table Category</option>
+                                                    <option>Booths</option>
+                                                    <option>Two to Four Person Tables</option>
+                                                    <option>Bar Height Table</option>
+                                                    <option>Family Dinning Table</option>
+                                                    <option>Outdoor Table</option>
+                                                </select>
+                                                <label for="select1"></label>
+                                            </div>
+                                        </div>
+                                        
+                                    
+
+                                    
+
+                                        <div class="col-md-6">
+                                            <div class="form-floating">
+                                                <select class="form-select" name="members" id="select1">
+                                                    <option value="0">No of Members</option>
+                                                    <option >2-4</option>
+                                                    <option >4-8</option>
+                                                    <option >8-10</option>
+                                                    <option >10+</option>
+                                                </select>
+                                                <label for="select1"></label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <div class="form-floating">
+                                                <textarea class="form-control" name="srequest" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                                <label for="message">Special Request</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                                        </div>
+                                    </div>
+                                </form>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 from urllib import request
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_list_or_404,get_object_or_404
 from .models import *
+from userapp.models import UserBookTableModel, UserFeedbackModel, UserRegModel
 from django.contrib import messages
 
 # Create your views here.
@@ -31,6 +32,7 @@ def restro_login(request):
            check=RestaurentRegModel.objects.get(restaurent_email=name,restaurent_password=password)
            print("ok")
            request.session["restaurent_id"]=check.restaurent_id
+           
            return redirect ('restro_dashboard')
         except: 
             messages.error(request, "Message sent." )
@@ -47,22 +49,41 @@ def restro_add_menu(request):
         table_price=request.POST.get("price")
         table_details=request.POST.get("details")
         table_image=request.FILES['table_image']
-        RestaurentTableodel.objects.create(restaurent=restaurent,table_type=table_type,table_price=table_price,table_details=table_details,table_image=table_image)
+        RestaurentTableModel.objects.create(restaurent=restaurent,table_type=table_type,table_price=table_price,table_details=table_details,table_image=table_image)
         messages.error(request, "Message sent." )
         
     return render(request,'restaurants/restaurant-add-menu.html')
 
 def restro_view_menu(request):
-    return render (request,'restaurants/restaurant-view-menu.html')
+    restaurent=request.session["restaurent_id"]
+    table=RestaurentTableModel.objects.filter(restaurent=restaurent)
+    count=UserBookTableModel.objects.filter(status="Booked").count()
+    return render (request,'restaurants/restaurant-view-menu.html',{'table':table,'count':count})
 
 def restro_edit_menu(request):
     return render (request,'restaurants/restaurant-edit.html')
 
 def restro_view_table_bookings(request):
-    return render (request,'restaurants/restaurant-view-booking-table.html')
+    user=UserBookTableModel.objects.all()
+    return render (request,'restaurants/restaurant-view-booking-table.html',{"user":user})
+
+def accept_booking(request,id):
+    obj=get_object_or_404(UserBookTableModel,booking_id=id)
+    obj.status="Payment Pending"
+    obj.save(update_fields=["status"])
+    return redirect("restro_view_table_bookings")
+
+def reject_booking(request,id):
+    obj=get_object_or_404(UserBookTableModel,booking_id=id)
+    obj.status="Not Available"
+    obj.save(update_fields=["status"])
+    return redirect("restro_view_table_bookings")
+
 
 def restro_view_feedback(request):
-    return render (request,'restaurants/restaurant-view-feedback.html')
+    restaurent=request.session["restaurent_id"]
+    feed=UserFeedbackModel.objects.filter(user_restaurent=restaurent)
+    return render (request,'restaurants/restaurant-view-feedback.html',{'feed':feed})
 
 def restro_view_food_orders(request):
     return render (request,'restaurants/restaurant-view-orders-food.html')

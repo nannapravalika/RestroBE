@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'userapp',
     'mainapp',
     'restaurentapp',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +129,42 @@ USE_I18N = True
 
 USE_TZ = True
 
+# #AWS S3
+
+# AWS_ACCESS_KEY_ID = 'AKIA47QNQMANLQJVYR4L'
+
+# AWS_SECRET_ACCESS_KEY = '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'
+
+# AWS_STORAGE_BUCKET_NAME = 'nannapravalikas3bucket'
+
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+# AWS_DEFAULT_ACL = 'public-read'
+
+# AWS_S3_OBJECT_PARAMETERS = {
+#     'CacheControl': 'max-age=86400'
+# }
+
+# AWS_LOCATION = 'static'
+
+# AWS_QUERYSTRING_AUTH = False
+
+# AWS_HEADERS = {
+#     'Access-Control-Allow-Origin': '*'
+# }
+
+# # Static files (CSS, JavaScript, Images)
+# # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# #STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
+
+# MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
@@ -139,6 +176,7 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR,'assets/static'),]
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=os.path.join(BASE_DIR,'media')

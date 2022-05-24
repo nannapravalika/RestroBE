@@ -75,71 +75,408 @@
                             </div>
                         </div>
 
-                        <a href="{% url 'user_feedback' %}" class="nav-item nav-link">Feedback</a>
+                       
                     </div>
                     <a href="{% url 'index' %}" class="btn btn-primary py-2 px-4">Logout</a>
 
                 </div>
             </nav>
 
-            <div class="container-fluid py-5 bg-dark hero-header mb-5">
-                <div class="container text-center my-5 pt-5 pb-4">
-                    <h1 class="display-3 text-white mb-3 animated slideInDown">Dashboard</h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb justify-content-center text-uppercase bg-dark">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Customers</a></li>
-                            <li class="breadcrumb-item text-white active" aria-current="page">Dashboard</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
+            
         </div>
         <!-- Navbar & Hero End -->
 
         <!-- Main -->
         <!-- search bar -->
-        <div class="container h-100">
-            <div class="col-5 d-flex justify-content-center h-100">
-                <div class="searchbar text-white">
-                    <input class="search_input" type="text" name="" placeholder="Search">
-                    <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+         
+        <!-- /search bar end -->
+
+        <div class="container-fluid py-5 bg-dark hero-header mb-5">
+            <div class="container my-5 py-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-center text-lg-start">
+                        <h1 class="display-3 text-white animated slideInLeft">Book Table<br>in popular Restaurents Now</h1>
+                        <p class="text-white animated slideInLeft mb-4 pb-2">Book tables at popular restaurents sitting at your home now.Faster than Fast Food, Better than Home Food & A place for Food Lovers to Connect. The only thing we love more than Food is YOU.</p>
+                        <a href="#book" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book Now</a>
+                    </div>
+                    <div class="col-lg-6 text-center text-lg-end overflow-hidden">
+                        <img class="img-fluid" src="{% static 'main/img/hero.png' %}" alt="">
+                    </div>
                 </div>
             </div>
         </div>
-        <br><br>
-        <!-- /search bar end -->
+    </div>
+    <!-- Navbar & Hero End -->
 
-        <!-- cards start -->
-        <center>
-            <div class="container-fluid">
-                <div class="row justify-content-evenly">
-                    {% for r in  req %}
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <img src="/media/{{r.restaurent_logo}}"
-                                        class="card-img-top" alt="...">
 
-                                    <div class="card-body ">
-                                        <h4>{{r.restaurent_name}}</h4>
-                                        <h6 text-end><small>{{r.restaurent_address}}</i> </small>
-                                            {% comment %} <i class="bi-alarm bi-alarm-primary"> {% endcomment %}
-                                        </h6>
-                                        <div class="mb-2">
-                                            <span class="badge bg-success"><i class="fa fa-star text-white"></i></span>
-
-                                        </div>
-                                        <a href="/user_book_table_res/{{r.restaurent_id}}"
-                                        class="btn btn-primary w-100 col-lg-12">Book Table</a>
-                                    </div>
-                                
-                            </div>
+    <!-- Service Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                            <h5>Master Chefs</h5>
+                            <p>Master chefs are responsible for creating menus and the recipes used for preparing food.</p>
                         </div>
-                    {% endfor %}
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-utensils text-primary mb-4"></i>
+                            <h5>Quality Food</h5>
+                            <p>The Quality of Food only exists when the product complies with all the needs of the customer.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
+                            <h5>Online Booking</h5>
+                            <p>A simple online ordering system for food establishments to sell directly to the customers.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item rounded pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                            <h5>24/7 Service</h5>
+                            <p>The Restoran support team is available 24 hours a day, 7 days a week, by email and phone.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </center>
-        <!-- /cards end -->
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- About Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="{% static 'main/img/about-1.jpg'%}">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="{% static 'main/img/about-2.jpg'%}" style="margin-top: 25%;">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="{% static 'main/img/about-3.jpg'%}">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="{% static 'main/img/about-4.jpg'%}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h5 class="section-title ff-secondary text-start text-primary fw-normal">About Us</h5>
+                    <h1 class="mb-4">Welcome to <i class="fa fa-utensils text-primary me-2"></i>Restoran</h1>
+                    <p class="mb-4">We bring to you a collection of Restoran that not only serve delicious food, but also abide by bestt-in-class safety measures and mandatory hygiene prtotocols.</p>
+                    <p class="mb-4">The platform is easy to use and dependable with a good interface that our customers love to engage with. It takes care of everything a restaurant needs to succeed in the digital world. It doesn't get any better than that.</p>
+                    <div class="row g-4 mb-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
+                                <div class="ps-4">
+                                    <p class="mb-0">Years of</p>
+                                    <h6 class="text-uppercase mb-0">Experience</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center border-start border-5 border-primary px-3">
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">50</h1>
+                                <div class="ps-4">
+                                    <p class="mb-0">Popular</p>
+                                    <h6 class="text-uppercase mb-0">Master Chefs</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    
+
+    <!-- Reservation Start -->
+    <div class="container-fluid py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="row g-0">
+            <div class="col-md-6">
+                <div class="video">
+                    <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <div id="book" class="col-md-6 bg-dark d-flex align-items-center">
+                <div class="p-5 wow fadeInUp" data-wow-delay="0.2s">
+                    <h5 class="section-title ff-secondary text-start text-primary fw-normal">Reservation</h5>
+                    <h1 class="text-white mb-4">Book A Table Online</h1>
+                    <form method="post">
+                        {% csrf_token %}
+                       
+                        <div class="row g-3">
+                            {% for u in user %}
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" value="{{u.user_name}}">
+                                    <label for="name">Your Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="tel" name="mobile" class="form-control" id="number" placeholder="Phone Number" value="{{u.user_mobile}}">
+                                    <label for="number">Phone Number</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" value="{{u.user_email}}">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <div class="col-md-6">
+                                <div class="form-floating" data-target-input="nearest">
+                                    <input type="date" name="date" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                    <label for="datetime">Date</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating"  data-target-input="nearest">
+                                    <input type="time" name="time" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                    <label for="datetime">Time</label>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="form-floating">
+                                    <select class="form-select" name="restaurant" id="select3">
+                                        <option>Select a Restaurant</option>
+                                        {% for r in res %}
+                                        <option>{{r.restaurent_name}}</option>
+                                        {% endfor %}
+                                        {% comment %} <option value="1">Bawarchi</option>
+                                        <option value="2">Paradise</option>
+                                        <option value="3">Shaghouse</option>
+                                        <option value="4">Novotal</option>
+                                        <option value="5">Kritunga</option>
+                                        <option value="6">Swagath Grand</option>
+                                        <option value="7">Minerva Grand</option> {% endcomment %}
+  
+                                    </select>
+                                    <label for="select3"></label>
+                                  </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" name="table" id="select1">
+                                        <option>Table Category</option>
+                                        <option>Booths</option>
+                                        <option>Two to Four Person Tables</option>
+                                        <option>Bar Height Table</option>
+                                        <option>Family Dinning Table</option>
+                                        <option>Outdoor Table</option>
+                                    </select>
+                                    <label for="select1"></label>
+                                  </div>
+                            </div>
+                            
+                           
+
+                           
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" name="members" id="select1">
+                                        <option value="0">No of Members</option>
+                                        <option >2-4</option>
+                                        <option >4-8</option>
+                                        <option >8-10</option>
+                                        <option >10+</option>
+                                    </select>
+                                    <label for="select1"></label>
+                                  </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" name="srequest" placeholder="Special Request" id="message" style="height: 100px"></textarea>
+                                    <label for="message">Special Request</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-0">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- 16:9 aspect ratio -->
+                    <div class="ratio ratio-16x9">
+                        <iframe class="embed-responsive-item" src="" id="video" allowfullscreen allowscriptaccess="always"
+                            allow="autoplay"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Reservation Start -->
+
+    <!-- Team Start -->
+    <div class="container-fluid pt-5 pb-3">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Team Members</h5>
+                <h1 class="mb-5">Our Master Chefs</h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item text-center rounded overflow-hidden">
+                        <div class="rounded-circle overflow-hidden m-4">
+                            <img class="img-fluid" src="{% static 'main/img/team-1.jpg'%}" alt="">
+                        </div>
+                        <h5 class="mb-0">Daniel</h5>
+                        <small>Designation</small>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item text-center rounded overflow-hidden">
+                        <div class="rounded-circle overflow-hidden m-4">
+                            <img class="img-fluid" src="{% static 'main/img/team-2.jpg'%}" alt="">
+                        </div>
+                        <h5 class="mb-0">Jason</h5>
+                        <small>Designation</small>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item text-center rounded overflow-hidden">
+                        <div class="rounded-circle overflow-hidden m-4">
+                            <img class="img-fluid" src="{% static 'main/img/team-3.jpg'%}" alt="">
+                        </div>
+                        <h5 class="mb-0">Richard</h5>
+                        <small>Designation</small>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="team-item text-center rounded overflow-hidden">
+                        <div class="rounded-circle overflow-hidden m-4">
+                            <img class="img-fluid" src="{% static 'main/img/team-4.jpg'%}" alt="">
+                        </div>
+                        <h5 class="mb-0">Kevin</h5>
+                        <small>Designation</small>
+                        <div class="d-flex justify-content-center mt-3">
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+
+    <!-- Testimonial Start -->
+    <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonial</h5>
+                <h1 class="mb-5">Our Clients Say!!!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel">
+                <div class="testimonial-item bg-transparent border rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>My reviews is only based on in app offers that you can use when you visit Restoran Restaurant.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'main/img/testimonial-1.jpg'%}" style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Sravani</h5>
+                            <small>Web Developer</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item bg-transparent border rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>This is a really great app for biriyani lovers and i truly recommend this app. </p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'main/img/testimonial-2.jpg'%}" style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Narendra</h5>
+                            <small>Software Engineer</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item bg-transparent border rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>This app has worked great for me and i always order Food from here.Fast & Qucik delivery.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'main/img/testimonial-3.jpg'%}" style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Kartik</h5>
+                            <small>Assistant Manager</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-item bg-transparent border rounded p-4">
+                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                    <p>It has good disocunt on some specific meals that are very popular.</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded-circle" src="{% static 'main/img/testimonial-4.jpg'%}" style="width: 50px; height: 50px;">
+                        <div class="ps-3">
+                            <h5 class="mb-1">Ayesha</h5>
+                            <small>HR</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+    
 
 
            <!-- Footer Start -->

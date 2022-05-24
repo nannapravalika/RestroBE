@@ -77,10 +77,10 @@
                 <div class="container my-5 py-5">
                     <div class="row align-items-center g-5">
                         <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="display-3 text-white animated slideInLeft">Enjoy Our<br>Delicious Meal</h1>
-                            <p class="text-white animated slideInLeft mb-4 pb-2">Faster than Fast Food, Better than Home Food & A place for Food Lovers to Connect. The only thing we love more than Food is YOU.</p>
-                            <a href="{% url 'user_login' %}" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Order food</a>
-                        </div>
+                            <h1 class="display-3 text-white animated slideInLeft">Book Table<br>in popular Restaurents Now</h1>
+                        <p class="text-white animated slideInLeft mb-4 pb-2">Book tables at popular restaurents sitting at your home now.Faster than Fast Food, Better than Home Food & A place for Food Lovers to Connect. The only thing we love more than Food is YOU.</p>
+                        <a href="#book" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft">Book Now</a>
+                     </div>
                         <div class="col-lg-6 text-center text-lg-end overflow-hidden">
                             <img class="img-fluid" src="{% static 'main/img/hero.png' %}" alt="">
                         </div>
@@ -190,7 +190,7 @@
         <!-- About End -->
 
 
-        <!-- Menu Start -->
+        {% comment %} <!-- Menu Start -->
         <div class="container-fluid py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -546,7 +546,7 @@
                 </div>
             </div>
         </div>
-        <!-- Menu End -->
+        <!-- Menu End --> {% endcomment %}
 
 
         <!-- Reservation Start -->
