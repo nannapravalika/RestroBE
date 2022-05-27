@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import *
 from restaurentapp.models import *
 from django.contrib import messages
@@ -51,7 +51,24 @@ def user_dashboard(request):
     return render(request,'customer/customer-dashboard.html',{'req':req,"res":res, "user":use})
 
 def user_profile(request):
-    return render(request,'customer/customer-my-profile.html')
+    userr=request.session["user_id"]
+    user=UserRegModel.objects.filter(user_id=userr)
+    use=get_object_or_404(UserRegModel,user_id=userr)
+    if request.method=="POST":
+        user_name=request.POST.get("name")
+        user_email=request.POST.get("email")
+        user_mobile=request.POST.get("mobile")
+         
+        use.user_name=user_name
+        use.user_email=user_email
+        use.user_mobile=user_mobile
+         
+        use.save(update_fields=["user_name","user_email","user_mobile","user_password"])
+        
+        
+         
+        
+    return render(request,'customer/customer-my-profile.html',{'user':user})
 
 def user_feedback(request,id):
     userr=request.session["user_id"]
@@ -76,8 +93,9 @@ def user_view_orders(request):
 
 def user_book_table_res(request,id):
     req=RestaurentRegModel.objects.filter(restaurent_id=id)
+    table=RestaurentTableModel.objects.filter(restaurent=id)
     
-    return render(request,'customer/customer-order-food.html',{'req':req})
+    return render(request,'customer/customer-order-food.html',{'req':req,'table':table})
 
 def user_view_bookings(request):
     user=request.session["user_id"]
@@ -88,12 +106,14 @@ def user_payment(request,id):
     user=UserBookTableModel.objects.filter(booking_id=id)
     return render(request,'customer/customer-payment.html',{"user":user})
 
+def user_restaurent_select(request):
+    res=RestaurentRegModel.objects.filter(status="Accepted")
+    return render(request,'customer/customer-restaurent-select.html',{'res':res})
 
-def user_book_table(request):
+def user_book_table(request,id):
     user=request.session["user_id"]
     use=UserRegModel.objects.filter(user_id=user)
-    user=UserRegModel.objects.filter(user_id=user).first()
-    res=RestaurentRegModel.objects.filter(status="Accepted")
+    res=RestaurentTableModel.objects.filter(table_id=id)
     if request.method=="POST":
         date=request.POST.get("date")
         time=request.POST.get("time")
@@ -101,9 +121,17 @@ def user_book_table(request):
         table_category=request.POST.get("table")
         members=request.POST.get("members")
         srequest=request.POST.get("srequest")
+        user=UserRegModel.objects.filter(user_id=user).first()
+        user_table=RestaurentTableModel.objects.filter(table_id=id).first()
+        restaurent = RestaurentRegModel.objects.get(restaurent_name=restaurent_name)
+        print("aaaaaa")
+        print(restaurent)
+        user_restaurent = restaurent.restaurent_id
+        print(user_restaurent)
+        print("bbbbbbb")
+
         
-        
-        UserBookTableModel.objects.create(user=user,date=date,time=time,restaurent_name=restaurent_name,table_category=table_category,members=members,request=srequest)
+        UserBookTableModel.objects.create(user_restaurent=restaurent,user_table=user_table,user=user,date=date,time=time,restaurent_name=restaurent_name,table_category=table_category,members=members,request=srequest)
     return render(request,'customer/customer-table-booking.html',{"res":res, "user":use})
 
 def user_view_menu(request):

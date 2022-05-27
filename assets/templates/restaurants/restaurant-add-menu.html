@@ -31,6 +31,7 @@
     
         <!-- Template Stylesheet -->
         <link href="{% static 'main/css/style.css'%}" rel="stylesheet">
+        <script src="{% static 'js/sweetalert.min.js' %}"></script>
     </head>
 
 <body>
@@ -96,15 +97,27 @@
                                 <form method="post" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     {% csrf_token %}
-                                    {% if messages %}
-                                    {% for message in messages %}
-                                        
-                                    <script>
-                                        swal("Welcome!", "Registration Succesful!", "success");
-                                    </script>
-                                        
-                                    {% endfor %}
-                                    {% endif %}
+                                    {% if messages %}              
+                            {% for message in messages %}
+                                {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                                    <script>swal({
+                                    title: "HOLD :",
+                                    text: "Please Login First",
+                                    icon: "info",
+                                    button: "OK",
+                                    });
+                                </script>
+                                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                <script>swal({
+                                    title: "ERROR :(",
+                                    text: "Invalid Login",
+                                    icon: "error",
+                                    button: "OK",
+                                });
+                                </script>
+                                {% endif %}              
+                            {% endfor %} 
+                        {% endif %}
                                     <div class="row g-3">
                                         <div class="col-md-12">
                                             <div class="form-floating">
@@ -124,7 +137,19 @@
                                         <div class="col-md-12">
                                             <div class="form-floating">
                                                 <input name="price"  class="form-control" placeholder="Price">
-                                                <label for="tel">Price 1 Table (2-4 members)</label>
+                                                <label for="tel">Price 1 Table</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-floating">
+                                                <input name="tables"  class="form-control" placeholder="Total Tables">
+                                                <label for="tel">Total Tables</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-floating">
+                                                <input name="members"  class="form-control" placeholder="Total Tables">
+                                                <label for="tel">Total Members per table</label>
                                             </div>
                                         </div>
                                         <div class="col-12">

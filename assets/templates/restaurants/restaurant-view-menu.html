@@ -119,18 +119,72 @@
                       <tr class="text-white">
                         <th>Table Type</th>
                         <th>Table Price</th>
+                        <th>Members Per Table</th>
                         <th>Table Details</th>
+                        <th>Total Tables</th>
                         <th>Total Booked</th>
+                        <th></th>
                       </tr>
                     </thead>
                     <tbody style="background-color:white ">
-                      {% for u in  table %}
+                      {% for u in  table1 %}
                       <tr>
-                        <td>{{u.table_type}}</td>
+                        <td>Booths</td>
                         <td>{{u.table_price}}</td>
+                        <td>{{u.table_members}}</td>
                         <td>{{u.table_details}}</td>
-                        <td>{{count}}</td>
-                         
+                        <td>{{u.total_tables}}</td>
+                        <td>{{count1}}</td>
+                         <td><button type="button" class="btn btn-success"> <a href="/restro-edit-menu/{{u.table_id}}" class="text-white">edit</a></button>
+                         </td>
+                         </tr>
+                      {% endfor %}
+                      {% for u in  table2 %}
+                      <tr>
+                        <td>Two to Four Person Tables</td>
+                        <td>{{u.table_price}}</td>
+                        <td>{{u.table_members}}</td>
+                        <td>{{u.table_details}}</td>
+                        <td>{{u.total_tables}}</td>
+                        <td>{{count2}}</td>
+                         <td><button type="button" class="btn btn-success"> <a href="/restro-edit-menu/{{u.table_id}}" class="text-white">edit</a></button>
+                         </td>
+                         </tr>
+                      {% endfor %}
+                      {% for u in  table3 %}
+                      <tr>
+                        <td>Bar Height Table</td>
+                        <td>{{u.table_price}}</td>
+                        <td>{{u.table_members}}</td>
+                        <td>{{u.table_details}}</td>
+                        <td>{{u.total_tables}}</td>
+                        <td>{{count3}}</td>
+                         <td><button type="button" class="btn btn-success"> <a href="/restro-edit-menu/{{u.table_id}}" class="text-white">edit</a></button>
+                         </td>
+                         </tr>
+                      {% endfor %}
+                      {% for u in  table4 %}
+                      <tr>
+                        <td>Family Dinning Table</td>
+                        <td>{{u.table_price}}</td>
+                        <td>{{u.table_members}}</td>
+                        <td>{{u.table_details}}</td>
+                        <td>{{u.total_tables}}</td>
+                        <td>{{count4}}</td>
+                         <td><button type="button" class="btn btn-success"> <a href="/restro-edit-menu/{{u.table_id}}" class="text-white">edit</a></button>
+                         </td>
+                         </tr>
+                      {% endfor %}
+                      {% for u in  table5 %}
+                      <tr>
+                        <td>Outdoor Table</td>
+                        <td>{{u.table_price}}</td>
+                        <td>{{u.table_members}}</td>
+                        <td>{{u.table_details}}</td>
+                        <td>{{u.total_tables}}</td>
+                        <td>{{count5}}</td>
+                         <td><button type="button" class="btn btn-success"> <a href="/restro-edit-menu/{{u.table_id}}" class="text-white">edit</a></button>
+                         </td>
                          </tr>
                       {% endfor %}
                     </tbody>

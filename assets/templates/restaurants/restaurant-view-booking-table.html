@@ -205,7 +205,7 @@
                 <td>{{u.status}}</td>
                 <td></td>
                 <td >
-                  {% if u.status == "pending" %}
+                  {% if u.status ==  "pending" %}
                   <button type="button" class="btn btn-success"> <a href="/accept-booking/{{u.booking_id}}" class="text-white">Accept</a></button>
                   <button type="button" class="btn btn-danger "> <a href="/reject-booking/{{u.booking_id}}" class="text-white">Reject</a ></button>
                   {% endif %}

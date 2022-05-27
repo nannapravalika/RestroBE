@@ -19,6 +19,8 @@ class RestaurentTableModel(models.Model):
     table_id=models.AutoField(primary_key=True)
     restaurent=models.ForeignKey(RestaurentRegModel,db_column="restaurent",on_delete=models.CASCADE)
     table_type=models.CharField(max_length=100)
+    total_tables=models.CharField(max_length=100)
+    table_members=models.CharField(max_length=100)
     table_price=models.CharField(max_length=100)  
     table_details=models.CharField(max_length=100)
     table_image=models.ImageField(upload_to='images/')

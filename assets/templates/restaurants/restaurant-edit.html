@@ -106,7 +106,6 @@
                         <h1 class="text-white mb-4"></h1>
                         <form method="post" enctype="multipart/form-data">
                             {% csrf_token %}
-                            {% csrf_token %}
                             {% if messages %}
                             {% for message in messages %}
                                 
@@ -116,12 +115,13 @@
                                 
                             {% endfor %}
                             {% endif %}
+                            {% for t in table %}
                             <div class="row g-3">
                                 <div class="col-md-12">
                                     <div class="form-floating">
                                         <select class="form-select" name="category">
                                             
-                                            <option selected>Category</option>
+                                            <option selected>{{t.table_type}}</option>
                                             <option>Booths</option>
                                             <option>Two to Four Person Tables</option>
                                             <option>Bar Height Table</option>
@@ -129,24 +129,38 @@
                                             <option>Outdoor Table</option>
                                             
                                         </select>
-                                        <label for="select3"></label>
+                                        <label for="select3">Table Category</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input name="price"  class="form-control" placeholder="Price">
-                                        <label for="tel">Price 1 Table (2-4 members)</label>
+                                        <input name="price"  class="form-control" placeholder="Price" value="{{t.table_price}}">
+                                        <label for="tel">Price Per 1 Table</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input name="tables"  class="form-control" placeholder="Total Tables" value="{{t.total_tables}}">
+                                        <label for="tel">Total Tables</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input name="members"  class="form-control" placeholder="Total Tables" value="{{t.table_members}}">
+                                        <label for="tel">Total Members per table</label>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <textarea class="form-control" name="details" placeholder="Write More Details" style="height: 100px"></textarea>
+                                        <textarea class="form-control" name="details" placeholder="Write More Details" style="height: 100px">{{t.table_details}}</textarea>
                                         <label for="message">Write more details</label>
                                     </div>
                                 </div>
                                 <div>
                                     <label for="formFileLg"  class="form-label text-white">Upload Image</label>
+                                    
                                     <input class="form-control form-control-lg "name="table_image" type="file"  accept="image/*"/>
+                                    <p>{{t.table_image}}</p>
                                 </div>
                                 <div>
                                     <button class="btn btn-primary w-100 py-3" type="submit">Add</button>
@@ -154,6 +168,7 @@
 
                                 
                             </div>
+                            {% endfor %}
                         </form>
                     </div>
                     </center>
