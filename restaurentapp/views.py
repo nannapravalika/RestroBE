@@ -38,7 +38,7 @@ def restro_login(request):
            if RestaurentRegModel.objects.filter(status="Accepted"):
                return redirect ('restro_dashboard')
            else:
-               messages.error(request, "Your Account request is in pending" )
+               messages.error(request, "Your Account request in pending" )
         except: 
             messages.error(request, "Invalid Login" )
     return render(request,'restaurants/restaurant-login.html')
