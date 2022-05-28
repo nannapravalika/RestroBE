@@ -162,13 +162,13 @@
                                         {% endfor %}
                                         <div class="col-md-6">
                                             <div class="form-floating" data-target-input="nearest">
-                                                <input type="date" name="date" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                                <input type="date" name="date" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" required/>
                                                 <label for="datetime">Date</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-floating"  data-target-input="nearest">
-                                                <input type="time" name="time" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" />
+                                                <input type="time" name="time" class="form-control datetimepicker-input" id="datetime" placeholder="Date & Time" data-target="#date3" data-toggle="datetimepicker" required/>
                                                 <label for="datetime">Time</label>
                                             </div>
                                         </div>
@@ -211,7 +211,7 @@
 
                                         <div class="col-md-6">
                                             <div class="form-floating">
-                                                <select class="form-select" name="members" id="select1">
+                                                <select class="form-select" name="members" id="select1" required>
                                                     <option value="0">No of Members</option>
                                                     <option >0-2</option>
                                                     <option >2-4</option>

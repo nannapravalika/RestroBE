@@ -62,12 +62,12 @@
                         <a href="about.html" class="nav-item nav-link">About</a>
 
                         <a href="{% url 'service' %}" class="nav-item nav-link">Services</a>
-                        <a href="{% url 'admin_login' %}" class="nav-item nav-link " >Admin</a>
+                        <a href="{% url 'admin_login' %}" class="nav-item nav-link active" >Admin</a>
 
                         <a href="{% url 'restro_login' %}" class="nav-item nav-link">Restaurants</a>
-                        <a href="{% url 'user_login' %}" class="nav-item nav-link active">Customers</a>
+                        <a href="{% url 'user_login' %}" class="nav-item nav-link ">Customers</a>
 
-                        <a href="/Customers/contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
                     </div>
                     <a href="" class="btn btn-primary py-2 px-4">Book A Table</a>
                 </div>

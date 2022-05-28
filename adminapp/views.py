@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from restaurentapp.models import *
+from userapp.models import *
 # Create your views here.
  
 def admin_login(request):
@@ -14,7 +15,12 @@ def admin_login(request):
     return render(request,'admin/admin-login.html')
 
 def admin_dashboard(request):
-    return render(request,'admin/admin-dashboard.html')
+    count1=UserBookTableModel.objects.filter(status="Booked").count()
+    count2=RestaurentRegModel.objects.filter(status="Accepted").count()
+    count3=RestaurentRegModel.objects.all().count()
+    count4=UserRegModel.objects.all().count()
+
+    return render(request,'admin/admin-dashboard.html',{'count1':count1,'count2':count2,'count3':count3,'count4':count4})
 
 def admin_feedback(request):
     return render(request,'admin/admin-feedback.html')
