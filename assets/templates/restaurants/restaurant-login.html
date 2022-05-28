@@ -32,6 +32,15 @@
         <!-- Template Stylesheet -->
         <link href="{% static 'main/css/style.css'%}" rel="stylesheet">
         <script src="{% static 'main/js/sweetalert.min.js' %}"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script type="text/javascript">
+            function preventBack() {
+              window.history.forward();
+            }
+            setTimeout("preventBack()", 0);
+            window.onunload = function () { null };  
+          </script>
+        
     </head>
 
 <body>
@@ -105,27 +114,47 @@
                     <h1 class="text-white mb-4"></h1>
                     <form method="post">
                         {% csrf_token %}
+                        {% for message in messages %}
                         {% if messages %}              
-                            {% for message in messages %}
-                                {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
-                                    <script>swal({
-                                    title: "HOLD :",
-                                    text: "Login Sucessful",
-                                    icon: "info",
-                                    button: "OK",
-                                    });
-                                </script>
-                                {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
-                                <script>swal({
-                                    title: "ERROR :(",
-                                    text: "",
-                                    icon: "error",
-                                    button: "OK",
-                                });
-                                </script>
-                                {% endif %}              
-                            {% endfor %} 
-                        {% endif %}
+                        
+                          {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                              <script>swal({
+                                title: "REJECTED :(",
+                                text: "Your Request has been Rejected, So you cannot Login",
+                                icon: "error",
+                                button: "OK",
+                              });
+                            </script>
+          
+                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                            <script>swal({
+                                title: "PENDING :(",
+                                text: "Your Status is Pending, You Cannot Login Now",
+                                icon: "info",
+                                button: "OK",
+                            });
+                            </script>
+                            
+                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                            <script>swal({
+                                title: "Error :(",
+                                text: "Invalid Login",
+                                icon: "warning",
+                                button: "OK",
+                            });
+                            </script>
+                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                            <script>swal({
+                                title: "GOOD JOB :_)",
+                                text: "Login Successful",
+                                icon: "success",
+                                button: "OK",
+                            });
+                            </script>
+                          {% endif %}              
+                        
+                      {% endif %}
+                      {% endfor %} 
                         <div class="row g-3">
 
                             <div class="col-md-12 px-5">

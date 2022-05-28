@@ -33,14 +33,18 @@ def restro_login(request):
         
         try:
            check=RestaurentRegModel.objects.get(restaurent_email=name,restaurent_password=password)
-           print("ok")
            request.session["restaurent_id"]=check.restaurent_id
-           if RestaurentRegModel.objects.filter(status="Accepted"):
-               return redirect ('restro_dashboard')
-           else:
-               messages.error(request, "Your Account request in pending" )
+           status=check.status
+           if status=="Accepted":
+                return redirect('restro_dashboard')    
+           elif status=="Rejected":
+                messages.error(request,'Your Request has been Rejected, So you cannot Login')  
+           elif status=="pending":
+                print("pending")
+                messages.info(request,'Your Status is Pending, You Cannot Login Now')  
         except: 
-            messages.error(request, "Invalid Login" )
+              messages.warning(request,'Invalid Login')
+         
     return render(request,'restaurants/restaurant-login.html')
 
 def restro_dashboard(request):

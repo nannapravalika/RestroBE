@@ -24,6 +24,7 @@ class UserBookTableModel(models.Model):
     table_category=models.CharField(max_length=100)
     members=models.CharField(max_length=100)
     request=models.TextField()
+    price=models.IntegerField(null=True)
     status=models.CharField(default="pending",max_length=100)    
     
     class Meta:

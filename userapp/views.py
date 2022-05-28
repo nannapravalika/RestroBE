@@ -100,6 +100,7 @@ def user_book_table_res(request,id):
 def user_view_bookings(request):
     user=request.session["user_id"]
     user=UserBookTableModel.objects.filter(user=user)
+     
     return render(request,'customer/customer-view-booking-status.html',{"user":user})
 
 def user_payment(request,id):
@@ -124,14 +125,27 @@ def user_book_table(request,id):
         user=UserRegModel.objects.filter(user_id=user).first()
         user_table=RestaurentTableModel.objects.filter(table_id=id).first()
         restaurent = RestaurentRegModel.objects.get(restaurent_name=restaurent_name)
-        print("aaaaaa")
+         
+        price = 0
+        hotel_table_price = RestaurentTableModel.objects.get(table_id=id)
+        if members=='0-2':
+            price = int(hotel_table_price.table_price) 
+        if members=='2-4':
+            price = int(hotel_table_price.table_price) * 2
+        if members=='4-8':
+            price = int(hotel_table_price.table_price) * 3
+        if members=='8-10':
+            price = int(hotel_table_price.table_price) * 4
+        if members=='10+':
+            price = int(hotel_table_price.table_price) * 5        
+        
+        print('********',price)
         print(restaurent)
         user_restaurent = restaurent.restaurent_id
         print(user_restaurent)
-        print("bbbbbbb")
-
-        
-        UserBookTableModel.objects.create(user_restaurent=restaurent,user_table=user_table,user=user,date=date,time=time,restaurent_name=restaurent_name,table_category=table_category,members=members,request=srequest)
+         
+        UserBookTableModel.objects.create(price=price,user_restaurent=restaurent,user_table=user_table,user=user,date=date,time=time,restaurent_name=restaurent_name,table_category=table_category,members=members,request=srequest)
+        messages.success(request, "Sucessfully Booked the Table" )
     return render(request,'customer/customer-table-booking.html',{"res":res, "user":use})
 
 def user_view_menu(request):

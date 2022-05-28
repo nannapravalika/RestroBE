@@ -31,7 +31,7 @@
     
         <!-- Template Stylesheet -->
         <link href="{% static 'main/css/style.css'%}" rel="stylesheet">
-        <script src="{% static 'js/sweetalert.min.js' %}"></script>
+        <script src="{% static 'main/js/sweetalert.min.js' %}"></script>
     </head>
 
 <body>
@@ -116,7 +116,27 @@
                     <h1 class="text-white mb-4">Book A Table Online</h1>
                                 <form method="post">
                                     {% csrf_token %}
-                                
+                                    {% if messages %}              
+                                    {% for message in messages %}
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                                                <script>swal({
+                                                title: "SUCCESS :",
+                                                text: "Sucessfully Added Tables",
+                                                icon: "success",
+                                                button: "OK",
+                                                });
+                                            </script>
+                                            {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                            <script>swal({
+                                                title: "ERROR :(",
+                                                text: "Table Type Already Exists, Please Update Table for any Changes",
+                                                icon: "error",
+                                                button: "OK",
+                                            });
+                                            </script>
+                                            {% endif %}              
+                                        {% endfor %} 
+                                    {% endif %}
                                     <div class="row g-3">
                                         {% for u in user %}
                                         <div class="col-md-6">
@@ -193,6 +213,7 @@
                                             <div class="form-floating">
                                                 <select class="form-select" name="members" id="select1">
                                                     <option value="0">No of Members</option>
+                                                    <option >0-2</option>
                                                     <option >2-4</option>
                                                     <option >4-8</option>
                                                     <option >8-10</option>
